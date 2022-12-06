@@ -6892,6 +6892,7 @@
         "id": "6fa71d2ca82b77c7",
         "type": "mqtt in",
         "z": "bc52afb68bb2be89",
+        "d": true,
         "name": "Button 01",
         "topic": "zigbee2mqtt/Button01_SNZB-01",
         "qos": "2",
@@ -8369,7 +8370,8 @@
         "y": 200,
         "wires": [
             [
-                "34e23ac3af5d60bc"
+                "34e23ac3af5d60bc",
+                "badb9afa71a7f63d"
             ],
             [
                 "1649bf45b1ca9891",
@@ -8548,6 +8550,58 @@
         "id": "54a61e4e54b48c93",
         "type": "change",
         "z": "4769076e30583f2e",
+        "name": "toggle switch",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "TOGGLE",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 180,
+        "wires": [
+            [
+                "b6c56d0b09e7d20b"
+            ]
+        ]
+    },
+    {
+        "id": "584636adb84b50cf",
+        "type": "change",
+        "z": "4769076e30583f2e",
+        "name": "off switch",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "badb9afa71a7f63d",
+        "type": "change",
+        "z": "4769076e30583f2e",
         "name": "toggle",
         "rules": [
             {
@@ -8563,8 +8617,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 730,
-        "y": 180,
+        "x": 590,
+        "y": 80,
         "wires": [
             [
                 "a42694da92fb5aab"
