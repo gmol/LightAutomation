@@ -103,6 +103,14 @@
         "env": []
     },
     {
+        "id": "e86e32e3984d7a10",
+        "type": "tab",
+        "label": "Door",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "47ad76887e14580c",
         "type": "subflow",
         "name": "PIR Subflow [DEPRECATED]",
@@ -6537,6 +6545,11 @@
         "name": "",
         "env": [
             {
+                "name": "NIGHT_BRIGHTNESS",
+                "value": "150",
+                "type": "num"
+            },
+            {
                 "name": "BRIGHTNESS",
                 "value": "150",
                 "type": "num"
@@ -7940,7 +7953,7 @@
         "id": "1404dab74b691b8a",
         "type": "mqtt in",
         "z": "25b94ca4d48979df",
-        "name": "kid's room PIR/brithness sensor",
+        "name": "kid's room PIR/brightness sensor",
         "topic": "zigbee2mqtt/PIR_Aqara_01",
         "qos": "0",
         "datatype": "json",
@@ -8538,7 +8551,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
+        "x": 600,
         "y": 420,
         "wires": [
             [
@@ -8565,37 +8578,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
-        "y": 180,
+        "x": 590,
+        "y": 360,
         "wires": [
             [
                 "b6c56d0b09e7d20b"
             ]
-        ]
-    },
-    {
-        "id": "584636adb84b50cf",
-        "type": "change",
-        "z": "4769076e30583f2e",
-        "name": "off switch",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "OFF",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 580,
-        "y": 520,
-        "wires": [
-            []
         ]
     },
     {
@@ -8622,6 +8610,123 @@
         "wires": [
             [
                 "a42694da92fb5aab"
+            ]
+        ]
+    },
+    {
+        "id": "734d8381c14eb46f",
+        "type": "mqtt in",
+        "z": "e86e32e3984d7a10",
+        "name": "",
+        "topic": "zigbee2mqtt/door",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "002a5eb6eb650ca6"
+            ]
+        ]
+    },
+    {
+        "id": "a338d9883711a43f",
+        "type": "e-mail",
+        "z": "e86e32e3984d7a10",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "x5ht7lb6@duck.com",
+        "dname": "",
+        "x": 920,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "809ced3214fe050a",
+        "type": "change",
+        "z": "e86e32e3984d7a10",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "open",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Front door",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 120,
+        "wires": [
+            [
+                "a338d9883711a43f"
+            ]
+        ]
+    },
+    {
+        "id": "002a5eb6eb650ca6",
+        "type": "switch",
+        "z": "e86e32e3984d7a10",
+        "name": "",
+        "property": "payload.contact",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "809ced3214fe050a"
+            ]
+        ]
+    },
+    {
+        "id": "d78c328af49deaf2",
+        "type": "inject",
+        "z": "e86e32e3984d7a10",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"battery_low\":false,\"contact\":false,\"linkquality\":63,\"tamper\":false,\"voltage\":3100}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "002a5eb6eb650ca6"
             ]
         ]
     }
