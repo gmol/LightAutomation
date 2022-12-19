@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "25b94ca4d48979df",
+        "type": "tab",
+        "label": "2nd Floor Lights v2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "d0aa97dc7a4bc04f",
         "type": "tab",
         "label": "2nd Floor Desk",
@@ -49,16 +57,8 @@
     {
         "id": "7ea9894b62d00340",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "Playground 1",
         "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "e27178f4cd43f290",
-        "type": "tab",
-        "label": "1st Floor Lights",
-        "disabled": true,
         "info": "",
         "env": []
     },
@@ -66,14 +66,14 @@
         "id": "bc52afb68bb2be89",
         "type": "tab",
         "label": "1st Floor Lights v3",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
     {
-        "id": "25b94ca4d48979df",
+        "id": "03d0df180b773622",
         "type": "tab",
-        "label": "2nd Floor Lights v2",
+        "label": "1st Floor Lights v4",
         "disabled": false,
         "info": "",
         "env": []
@@ -90,6 +90,14 @@
         "id": "e86e32e3984d7a10",
         "type": "tab",
         "label": "Door",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e1b8a77c64d29e6e",
+        "type": "tab",
+        "label": "Flow 3",
         "disabled": false,
         "info": "",
         "env": []
@@ -427,6 +435,20 @@
         ]
     },
     {
+        "id": "bfc8df5c1a440313",
+        "type": "junction",
+        "z": "e86e32e3984d7a10",
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "f7fb07ccdf63870e",
+                "f495bf6e00b170e7",
+                "b6ae998389b4ec71"
+            ]
+        ]
+    },
+    {
         "id": "c2dff347.6d813",
         "type": "server",
         "name": "Home Assistant",
@@ -459,20 +481,13 @@
         "sessionExpiry": ""
     },
     {
-        "id": "cd687a95.00e108",
-        "type": "ui_group",
-        "name": "WS2812B LED STRIP",
-        "tab": "aa146f4d.b53ca",
-        "order": 1,
-        "disp": true,
-        "width": "6"
-    },
-    {
         "id": "aa146f4d.b53ca",
         "type": "ui_tab",
-        "name": "Lab",
-        "icon": "dashboard",
-        "order": 1
+        "name": "Home",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "a30599dce7613846",
@@ -590,8 +605,8 @@
     {
         "id": "3ca99660d7292448",
         "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
+        "name": "Timer",
+        "icon": "timer",
         "order": 3,
         "disabled": false,
         "hidden": false
@@ -638,6 +653,17 @@
         "type": "server",
         "name": "Home Assistant",
         "addon": true
+    },
+    {
+        "id": "3b7c9cd86fb22b9a",
+        "type": "ui_group",
+        "name": "Front Door",
+        "tab": "aa146f4d.b53ca",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "2bd91bd73a58c120",
@@ -1217,7 +1243,7 @@
         "topic": "",
         "payloadTimerStart": "",
         "payloadTimerStartType": "nul",
-        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":10}",
+        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":5}",
         "payloadTimerStopType": "json",
         "timer": "${TIMEOUT}",
         "resetWhileRunning": true,
@@ -1273,6 +1299,26 @@
         "statusType": "auto",
         "x": 490,
         "y": 280,
+        "wires": []
+    },
+    {
+        "id": "56580ded5e7d6c5c",
+        "type": "comment",
+        "z": "ce92b488da80a9bb",
+        "name": "turns light on/off",
+        "info": "",
+        "x": 1020,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bd18ba3a398ec9ba",
+        "type": "comment",
+        "z": "ce92b488da80a9bb",
+        "name": "countdown steps",
+        "info": "",
+        "x": 1020,
+        "y": 240,
         "wires": []
     },
     {
@@ -2009,6 +2055,666 @@
         "x": 600,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "7d05f45acf1a52bd",
+        "type": "ui_gauge",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "group": "3b825d13cf529239",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "{{msg.topic}}",
+        "label": "Seconds",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#fff700",
+            "#fff700",
+            "#fff700"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1570,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "719d070591347b32",
+        "type": "ui_gauge",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "group": "3b825d13cf529239",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "II Floor Ceiling",
+        "label": "Seconds",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#fff700",
+            "#fff700",
+            "#fff700"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1560,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "cce85be822c269c2",
+        "type": "mqtt in",
+        "z": "25b94ca4d48979df",
+        "name": "2nd floor stairs PIR ",
+        "topic": "zigbee2mqtt/PIR_SNZB-03_01",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "ace4239e4e51b416"
+            ]
+        ]
+    },
+    {
+        "id": "577e73421e62ddce",
+        "type": "mqtt out",
+        "z": "25b94ca4d48979df",
+        "name": "2nd floor stairs bulb",
+        "topic": "zigbee2mqtt/Bulb_Ikea_02/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 1040,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e5ae3c24f12c1762",
+        "type": "debug",
+        "z": "25b94ca4d48979df",
+        "name": "debug 70",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f53062de96305b4b",
+        "type": "debug",
+        "z": "25b94ca4d48979df",
+        "name": "debug 71",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "0a4e7cc160059570",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "II Floor Light is OFF",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 480,
+        "wires": [
+            [
+                "7d05f45acf1a52bd"
+            ]
+        ]
+    },
+    {
+        "id": "9aa15cc6c7319f90",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "II Floor Light is ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 540,
+        "wires": [
+            [
+                "7d05f45acf1a52bd"
+            ]
+        ]
+    },
+    {
+        "id": "0162c5f4db2607ef",
+        "type": "delay",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 480,
+        "wires": [
+            [
+                "0a4e7cc160059570"
+            ]
+        ]
+    },
+    {
+        "id": "afefc467ba67dd08",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "II Floor Light is ON",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1340,
+        "y": 400,
+        "wires": [
+            [
+                "7d05f45acf1a52bd"
+            ]
+        ]
+    },
+    {
+        "id": "47b8c93539593bd6",
+        "type": "inject",
+        "z": "25b94ca4d48979df",
+        "name": "occupancy true",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 500,
+        "wires": [
+            [
+                "ace4239e4e51b416"
+            ]
+        ]
+    },
+    {
+        "id": "0a47222e7ebd0f86",
+        "type": "inject",
+        "z": "25b94ca4d48979df",
+        "name": "occupancy false",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "ace4239e4e51b416"
+            ]
+        ]
+    },
+    {
+        "id": "1404dab74b691b8a",
+        "type": "mqtt in",
+        "z": "25b94ca4d48979df",
+        "name": "kid's room PIR/brightness sensor",
+        "topic": "zigbee2mqtt/PIR_Aqara_01",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 189,
+        "y": 88,
+        "wires": [
+            [
+                "fe1ccb125a928d3e"
+            ]
+        ]
+    },
+    {
+        "id": "55c59f99a8773535",
+        "type": "mqtt out",
+        "z": "25b94ca4d48979df",
+        "name": "Kids Room Ceiling Light",
+        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 990,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fe1ccb125a928d3e",
+        "type": "switch",
+        "z": "25b94ca4d48979df",
+        "name": "occupancy",
+        "property": "payload.occupancy",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "neq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 80,
+        "wires": [
+            [
+                "d3cd1752eca03170",
+                "09013432c187eac3"
+            ],
+            [
+                "54f2461176da3d7e"
+            ]
+        ]
+    },
+    {
+        "id": "d3cd1752eca03170",
+        "type": "subflow:c36763b8799fc77d",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "x": 680,
+        "y": 80,
+        "wires": [
+            [
+                "55c59f99a8773535",
+                "500677099d187a12"
+            ]
+        ]
+    },
+    {
+        "id": "54f2461176da3d7e",
+        "type": "countdown",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "topic": "",
+        "payloadTimerStart": "",
+        "payloadTimerStartType": "nul",
+        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":10}",
+        "payloadTimerStopType": "json",
+        "timer": "1200",
+        "resetWhileRunning": true,
+        "outputOnReset": false,
+        "setTimeToNewWhileRunning": true,
+        "startCountdownOnControlMessage": true,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "55c59f99a8773535",
+                "cdbf26bfc2a2d193"
+            ],
+            [
+                "61337caa12dd38e1"
+            ]
+        ]
+    },
+    {
+        "id": "09013432c187eac3",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "stop timer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "54f2461176da3d7e"
+            ]
+        ]
+    },
+    {
+        "id": "6198c17a9d879cf7",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "II Floor Light is OFF",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 140,
+        "wires": [
+            [
+                "719d070591347b32"
+            ]
+        ]
+    },
+    {
+        "id": "61337caa12dd38e1",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "II Floor Light is ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 200,
+        "wires": [
+            [
+                "719d070591347b32"
+            ]
+        ]
+    },
+    {
+        "id": "500677099d187a12",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "II Floor Light is ON",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 100,
+        "wires": [
+            [
+                "719d070591347b32"
+            ]
+        ]
+    },
+    {
+        "id": "cdbf26bfc2a2d193",
+        "type": "delay",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1080,
+        "y": 140,
+        "wires": [
+            [
+                "6198c17a9d879cf7"
+            ]
+        ]
+    },
+    {
+        "id": "ace4239e4e51b416",
+        "type": "switch",
+        "z": "25b94ca4d48979df",
+        "name": "occupancy",
+        "property": "payload.occupancy",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "jsonata"
+            },
+            {
+                "t": "neq",
+                "v": "true",
+                "vt": "jsonata"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 510,
+        "y": 420,
+        "wires": [
+            [
+                "50b240b6a65c3d93",
+                "9547df48ccff86aa"
+            ],
+            [
+                "9e98b3d828bf2f50"
+            ]
+        ]
+    },
+    {
+        "id": "50b240b6a65c3d93",
+        "type": "subflow:c36763b8799fc77d",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "577e73421e62ddce",
+                "e5ae3c24f12c1762",
+                "afefc467ba67dd08"
+            ]
+        ]
+    },
+    {
+        "id": "9e98b3d828bf2f50",
+        "type": "countdown",
+        "z": "25b94ca4d48979df",
+        "name": "",
+        "topic": "",
+        "payloadTimerStart": "",
+        "payloadTimerStartType": "nul",
+        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":10}",
+        "payloadTimerStopType": "json",
+        "timer": "120",
+        "resetWhileRunning": true,
+        "outputOnReset": false,
+        "setTimeToNewWhileRunning": true,
+        "startCountdownOnControlMessage": true,
+        "x": 730,
+        "y": 520,
+        "wires": [
+            [
+                "577e73421e62ddce",
+                "0162c5f4db2607ef",
+                "f53062de96305b4b"
+            ],
+            [
+                "9aa15cc6c7319f90"
+            ]
+        ]
+    },
+    {
+        "id": "9547df48ccff86aa",
+        "type": "change",
+        "z": "25b94ca4d48979df",
+        "name": "stop timer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 460,
+        "wires": [
+            [
+                "9e98b3d828bf2f50"
+            ]
+        ]
     },
     {
         "id": "5eeaeadc149423bc",
@@ -4242,8 +4948,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1520,
-        "y": 160,
+        "x": 1000,
+        "y": 180,
         "wires": []
     },
     {
@@ -4263,8 +4969,8 @@
                 "type": "num"
             }
         ],
-        "x": 1080,
-        "y": 220,
+        "x": 700,
+        "y": 100,
         "wires": [
             [
                 "a0e6afadf433511e",
@@ -4293,8 +4999,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 570,
-        "y": 220,
+        "x": 190,
+        "y": 100,
         "wires": [
             [
                 "29d8b5f36082c1f6"
@@ -4318,8 +5024,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 550,
-        "y": 280,
+        "x": 170,
+        "y": 160,
         "wires": [
             [
                 "29d8b5f36082c1f6"
@@ -4339,7 +5045,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1520,
+        "x": 1000,
         "y": 260,
         "wires": []
     },
@@ -4360,8 +5066,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 570,
-        "y": 420,
+        "x": 190,
+        "y": 300,
         "wires": [
             [
                 "67cad71bb08fe35c"
@@ -4379,8 +5085,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
-        "y": 420,
+        "x": 520,
+        "y": 300,
         "wires": [
             [
                 "a0e6afadf433511e"
@@ -4407,8 +5113,8 @@
         "topic": "",
         "payload": "300",
         "payloadType": "num",
-        "x": 636,
-        "y": 480,
+        "x": 256,
+        "y": 360,
         "wires": [
             [
                 "67cad71bb08fe35c",
@@ -4434,8 +5140,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 2,
-        "x": 1760,
-        "y": 300,
+        "x": 1160,
+        "y": 140,
         "wires": [
             [
                 "cb29fa7852062a3d"
@@ -4458,8 +5164,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1910,
-        "y": 180,
+        "x": 1310,
+        "y": 40,
         "wires": []
     },
     {
@@ -4475,8 +5181,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2120,
-        "y": 160,
+        "x": 1400,
+        "y": 120,
         "wires": []
     },
     {
@@ -4498,8 +5204,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 620,
+        "x": 540,
+        "y": 500,
         "wires": [
             []
         ]
@@ -4515,8 +5221,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
-        "y": 480,
+        "x": 500,
+        "y": 360,
         "wires": [
             [
                 "f8369892f5363b29"
@@ -4535,290 +5241,9 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
-        "y": 480,
+        "x": 720,
+        "y": 360,
         "wires": []
-    },
-    {
-        "id": "843dcf5de4ee3d23",
-        "type": "countdown",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "topic": "",
-        "payloadTimerStart": "true",
-        "payloadTimerStartType": "bool",
-        "payloadTimerStop": "false",
-        "payloadTimerStopType": "bool",
-        "timer": "4",
-        "resetWhileRunning": true,
-        "outputOnReset": true,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 1150,
-        "y": 720,
-        "wires": [
-            [
-                "dfbf62dc163a8f8e"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "fca76eb7063545df",
-        "type": "inject",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 560,
-        "y": 740,
-        "wires": [
-            [
-                "711c63662fc7598e"
-            ]
-        ]
-    },
-    {
-        "id": "711c63662fc7598e",
-        "type": "change",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "7",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 820,
-        "y": 740,
-        "wires": [
-            [
-                "843dcf5de4ee3d23"
-            ]
-        ]
-    },
-    {
-        "id": "5cb4c18ad81e7a0a",
-        "type": "inject",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 560,
-        "y": 880,
-        "wires": [
-            [
-                "c7c6f99a356a4635"
-            ]
-        ]
-    },
-    {
-        "id": "dfbf62dc163a8f8e",
-        "type": "debug",
-        "z": "7ea9894b62d00340",
-        "name": "debug 66",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1360,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "c7c6f99a356a4635",
-        "type": "change",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "7",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "control",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 860,
-        "y": 860,
-        "wires": [
-            [
-                "843dcf5de4ee3d23"
-            ]
-        ]
-    },
-    {
-        "id": "107c0757f5d8e021",
-        "type": "inject",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 540,
-        "y": 960,
-        "wires": [
-            [
-                "6d17d0b355e52ca1"
-            ]
-        ]
-    },
-    {
-        "id": "6d17d0b355e52ca1",
-        "type": "change",
-        "z": "7ea9894b62d00340",
-        "name": "stop",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 810,
-        "y": 960,
-        "wires": [
-            [
-                "843dcf5de4ee3d23"
-            ]
-        ]
-    },
-    {
-        "id": "4a5cdb8482d96086",
-        "type": "switch",
-        "z": "7ea9894b62d00340",
-        "d": true,
-        "name": "",
-        "property": "payload.illuminance_lux",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lt",
-                "v": "100",
-                "vt": "str"
-            },
-            {
-                "t": "gte",
-                "v": "100",
-                "vt": "str"
-            },
-            {
-                "t": "null"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1630,
-        "y": 840,
-        "wires": [
-            [
-                "87e2059fe7dc8602"
-            ],
-            [
-                "b50a484d9fe5220c"
-            ],
-            [
-                "94ff34b0385cee67"
-            ]
-        ]
-    },
-    {
-        "id": "84ff9864c49c231e",
-        "type": "inject",
-        "z": "7ea9894b62d00340",
-        "name": "occupancy true",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 1400,
-        "y": 840,
-        "wires": [
-            [
-                "4a5cdb8482d96086"
-            ]
-        ]
     },
     {
         "id": "94ff34b0385cee67",
@@ -4833,8 +5258,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2270,
-        "y": 620,
+        "x": 810,
+        "y": 740,
         "wires": []
     },
     {
@@ -4850,8 +5275,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2270,
-        "y": 560,
+        "x": 810,
+        "y": 680,
         "wires": []
     },
     {
@@ -4871,13 +5296,11 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000,\"illuminance_lux\":200}",
         "payloadType": "json",
-        "x": 1490,
-        "y": 600,
+        "x": 230,
+        "y": 720,
         "wires": [
             [
-                "4a5cdb8482d96086",
-                "b507f820e52d9de6",
-                "af33b4c1dd06ca82"
+                "b507f820e52d9de6"
             ]
         ]
     },
@@ -4898,13 +5321,11 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000,\"illuminance_lux\":10}",
         "payloadType": "json",
-        "x": 1480,
-        "y": 640,
+        "x": 220,
+        "y": 760,
         "wires": [
             [
-                "4a5cdb8482d96086",
-                "b507f820e52d9de6",
-                "af33b4c1dd06ca82"
+                "b507f820e52d9de6"
             ]
         ]
     },
@@ -4930,8 +5351,8 @@
                 "type": "str"
             }
         ],
-        "x": 1810,
-        "y": 580,
+        "x": 550,
+        "y": 700,
         "wires": [
             [
                 "87e2059fe7dc8602"
@@ -4958,12 +5379,11 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 1460,
-        "y": 480,
+        "x": 200,
+        "y": 600,
         "wires": [
             [
-                "b507f820e52d9de6",
-                "af33b4c1dd06ca82"
+                "b507f820e52d9de6"
             ]
         ]
     },
@@ -4984,60 +5404,11 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 1460,
-        "y": 540,
+        "x": 200,
+        "y": 660,
         "wires": [
             [
                 "b507f820e52d9de6"
-            ]
-        ]
-    },
-    {
-        "id": "b50a484d9fe5220c",
-        "type": "debug",
-        "z": "7ea9894b62d00340",
-        "name": "II",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1950,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "af33b4c1dd06ca82",
-        "type": "switch",
-        "z": "7ea9894b62d00340",
-        "d": true,
-        "name": "hasBrigthnessSensor",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "hask",
-                "v": "illuminance_lux",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1880,
-        "y": 460,
-        "wires": [
-            [
-                "8b8a1a36e583f322"
-            ],
-            [
-                "f83c662fe1946659"
             ]
         ]
     },
@@ -5055,8 +5426,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2170,
-        "y": 380,
+        "x": 1790,
+        "y": 260,
         "wires": []
     },
     {
@@ -5073,697 +5444,140 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2170,
-        "y": 440,
+        "x": 1790,
+        "y": 320,
         "wires": []
     },
     {
-        "id": "1bb91685c2a77021",
-        "type": "mqtt out",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "topic": "zigbee2mqtt/Bulb_Ikea_01/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 2050,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "cc5fd45989ba160b",
-        "type": "mqtt in",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "topic": "zigbee2mqtt/PIR_SNZB-03_02",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 100,
+        "id": "9b2927504ff5e025",
+        "type": "bigtimer",
+        "z": "7ea9894b62d00340",
+        "outtopic": "",
+        "outpayload1": "",
+        "outpayload2": "",
+        "name": "Big Timer",
+        "comment": "",
+        "lat": 0,
+        "lon": 0,
+        "starttime": 5001,
+        "endtime": 1425,
+        "starttime2": 0,
+        "endtime2": 0,
+        "startoff": 0,
+        "endoff": 0,
+        "startoff2": 0,
+        "endoff2": 0,
+        "offs": 0,
+        "outtext1": "",
+        "outtext2": "",
+        "timeout": 1440,
+        "sun": true,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": true,
+        "jan": true,
+        "feb": true,
+        "mar": true,
+        "apr": true,
+        "may": true,
+        "jun": true,
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true,
+        "day1": 0,
+        "month1": 0,
+        "day2": 0,
+        "month2": 0,
+        "day3": 0,
+        "month3": 0,
+        "day4": 0,
+        "month4": 0,
+        "day5": 0,
+        "month5": 0,
+        "day6": 0,
+        "month6": 0,
+        "day7": 0,
+        "month7": 0,
+        "day8": 0,
+        "month8": 0,
+        "day9": 0,
+        "month9": 0,
+        "day10": 0,
+        "month10": 0,
+        "day11": 0,
+        "month11": 0,
+        "day12": 0,
+        "month12": 0,
+        "d1": 0,
+        "w1": 0,
+        "d2": 0,
+        "w2": 0,
+        "d3": 0,
+        "w3": 0,
+        "d4": 0,
+        "w4": 0,
+        "d5": 0,
+        "w5": 0,
+        "d6": 0,
+        "w6": 0,
+        "xday1": 0,
+        "xmonth1": 0,
+        "xday2": 0,
+        "xmonth2": 0,
+        "xday3": 0,
+        "xmonth3": 0,
+        "xday4": 0,
+        "xmonth4": 0,
+        "xday5": 0,
+        "xmonth5": 0,
+        "xday6": 0,
+        "xmonth6": 0,
+        "xday7": 0,
+        "xmonth7": 0,
+        "xday8": 0,
+        "xmonth8": 0,
+        "xday9": 0,
+        "xmonth9": 0,
+        "xday10": 0,
+        "xmonth10": 0,
+        "xday11": 0,
+        "xmonth11": 0,
+        "xday12": 0,
+        "xmonth12": 0,
+        "xd1": 0,
+        "xw1": 0,
+        "xd2": 0,
+        "xw2": 0,
+        "xd3": 0,
+        "xw3": 0,
+        "xd4": 0,
+        "xw4": 0,
+        "xd5": 0,
+        "xw5": 0,
+        "xd6": 0,
+        "xw6": 0,
+        "suspend": false,
+        "random": false,
+        "randon1": false,
+        "randoff1": false,
+        "randon2": false,
+        "randoff2": false,
+        "repeat": true,
+        "atstart": true,
+        "odd": false,
+        "even": false,
+        "x": 840,
+        "y": 540,
         "wires": [
-            [
-                "42263666c813cc9b",
-                "bd9a06f6de07de5b",
-                "15d831b73e859242"
-            ]
-        ]
-    },
-    {
-        "id": "42263666c813cc9b",
-        "type": "debug",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "PIR 1st Floor",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 430,
-        "y": 20,
-        "wires": []
-    },
-    {
-        "id": "bd9a06f6de07de5b",
-        "type": "switch",
-        "z": "e27178f4cd43f290",
-        "name": "occupancy",
-        "property": "payload.occupancy",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            },
-            {
-                "t": "neq",
-                "v": "true",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 330,
-        "y": 200,
-        "wires": [
-            [
-                "e9cc0b86d496ecef",
-                "ea50fbe1349359e1",
-                "fb0e57e93f47c310"
-            ],
+            [],
+            [],
             []
-        ]
-    },
-    {
-        "id": "02d295ea50993d16",
-        "type": "inject",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":36,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 150,
-        "y": 280,
-        "wires": [
-            [
-                "fb0e57e93f47c310"
-            ]
-        ]
-    },
-    {
-        "id": "15d831b73e859242",
-        "type": "function",
-        "z": "e27178f4cd43f290",
-        "name": "Flow Config",
-        "func": "const occupancy = msg.payload.occupancy;\nflow.set(\"PIR_SNZB-03_02\", {\n    \"occupancy\": occupancy\n});\nflow.set(\"Countdown\", {\n    \"value\": 133\n});\nflow.set(\"Bulb_Ikea_01\", {\n    \"light\": {\n        \"state\": \"ON\",\n        \"brightness\": 254,\n        \"color_temp\": \"neutral\"\n    },\n    \"countdown\" : 133\n});\n",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "fb0e57e93f47c310",
-        "type": "time-range-switch",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "lat": "",
-        "lon": "",
-        "startTime": "21:00",
-        "endTime": "06:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 570,
-        "y": 180,
-        "wires": [
-            [
-                "7e429364f49dbdde"
-            ],
-            [
-                "f808bcadec46e197"
-            ]
-        ]
-    },
-    {
-        "id": "46911587d9e35abd",
-        "type": "countdown",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "topic": "",
-        "payloadTimerStart": "true",
-        "payloadTimerStartType": "bool",
-        "payloadTimerStop": "false",
-        "payloadTimerStopType": "bool",
-        "timer": "10",
-        "resetWhileRunning": true,
-        "outputOnReset": true,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 1330,
-        "y": 180,
-        "wires": [
-            [
-                "2ff21443c9701e54"
-            ],
-            [
-                "a983447d76fef958"
-            ]
-        ]
-    },
-    {
-        "id": "7e429364f49dbdde",
-        "type": "change",
-        "z": "e27178f4cd43f290",
-        "name": "Set night light",
-        "rules": [
-            {
-                "t": "set",
-                "p": "Bulb_Ikea_01.light",
-                "pt": "flow",
-                "to": "{\"state\":\"ON\",\"brightness\":150,\"color_temp\":\"neutral\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 820,
-        "y": 140,
-        "wires": [
-            [
-                "7526e09a35ef8dcb",
-                "f808bcadec46e197"
-            ]
-        ]
-    },
-    {
-        "id": "2ff21443c9701e54",
-        "type": "function",
-        "z": "e27178f4cd43f290",
-        "name": "Keep ON when occupancy is true",
-        "func": "node.warn(`Message[${JSON.stringify(msg)}]`);\n\nfunction outputOne(msg) {\n    node.warn(`Output 1`)\n    return [msg, null];\n}\nfunction outputTwo(msg) {\n    node.warn(`Output 2[${JSON.stringify(msg)}]`)\n    return [null, msg];\n}\nconst occupancy = flow.get(\"PIR_SNZB-03_02\").occupancy;\nconst countDownValue = flow.get(\"Bulb_Ikea_01\").countdown;\nconst lightOnPayload = flow.get(\"Bulb_Ikea_01\").light;\nconst lightOffPayload = {\n    state: \"OFF\"\n}\n// node.warn(`Light On: ${JSON.stringify(lightOnPayload)}`);\n\nconst coundownStarted = msg.payload;\n\nif (coundownStarted) {\n    node.warn(`Payload[TRUE] - timer started - light on`);\n} else {\n    node.warn(`Payload[FALSE] - timer started - light off`);\n}\n // Stop timer - light off\nif (!coundownStarted && occupancy) {\n    node.warn(`Lights off but occupancy[${occupancy}]`);\n    // topic === 'control' restarts Timer\n    msg.topic = 'control';\n    msg.payload = countDownValue;\n    return outputTwo(msg);\n}\nmsg.payload = coundownStarted ? lightOnPayload : lightOffPayload;\nreturn outputOne(msg);\n\n\n",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1600,
-        "y": 100,
-        "wires": [
-            [
-                "8524fb42c7b2c64f",
-                "1bb91685c2a77021"
-            ],
-            [
-                "46911587d9e35abd",
-                "b11b93561b70b83a"
-            ]
-        ]
-    },
-    {
-        "id": "8524fb42c7b2c64f",
-        "type": "debug",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "debug 13",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1740,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "a983447d76fef958",
-        "type": "ui_gauge",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "group": "3b825d13cf529239",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "I Floor",
-        "label": "Seconds",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "300",
-        "colors": [
-            "#fff700",
-            "#fff700",
-            "#fff700"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 1650,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "b11b93561b70b83a",
-        "type": "debug",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "topic",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1760,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "af173a2b2237fc40",
-        "type": "inject",
-        "z": "e27178f4cd43f290",
-        "name": "msg.payload.occupancy",
-        "props": [
-            {
-                "p": "payload.occupancy",
-                "v": "false",
-                "vt": "bool"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 110,
-        "y": 380,
-        "wires": [
-            [
-                "15d831b73e859242"
-            ]
-        ]
-    },
-    {
-        "id": "e9cc0b86d496ecef",
-        "type": "debug",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "debug 15",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "$flowContext('Countdown').value",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 340,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "f76b37cdf5703c17",
-        "type": "inject",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 90,
-        "y": 200,
-        "wires": [
-            [
-                "15d831b73e859242",
-                "bd9a06f6de07de5b"
-            ]
-        ]
-    },
-    {
-        "id": "7526e09a35ef8dcb",
-        "type": "debug",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "debug 16",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1040,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "89123277b8294c46",
-        "type": "ui_switch",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "label": "Switch",
-        "tooltip": "",
-        "group": "3b825d13cf529239",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "{\"state\":\"ON\",\"brightness\":254,\"color_temp\":\"neutral\"}",
-        "onvalueType": "json",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"state\":\"OFF\"}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 1430,
-        "y": 40,
-        "wires": [
-            [
-                "1bb91685c2a77021"
-            ]
-        ]
-    },
-    {
-        "id": "3281467c09a1d6b6",
-        "type": "switch",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            },
-            {
-                "t": "neq",
-                "v": "1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 690,
-        "y": 460,
-        "wires": [
-            [
-                "69cb0fd8590bb25d"
-            ],
-            [
-                "1bb91685c2a77021",
-                "79f797fa3c7580fb"
-            ]
-        ]
-    },
-    {
-        "id": "8eb9c97ee753ad47",
-        "type": "ui_switch",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "3b825d13cf529239",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "1",
-        "onvalueType": "num",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "{\"state\":\"OFF\"}",
-        "offvalueType": "json",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 770,
-        "y": 620,
-        "wires": [
-            [
-                "3281467c09a1d6b6"
-            ]
-        ]
-    },
-    {
-        "id": "79f797fa3c7580fb",
-        "type": "change",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1080,
-        "y": 300,
-        "wires": [
-            [
-                "46911587d9e35abd"
-            ]
-        ]
-    },
-    {
-        "id": "2757627459f78db2",
-        "type": "inject",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 610,
-        "y": 760,
-        "wires": [
-            [
-                "8eb9c97ee753ad47"
-            ]
-        ]
-    },
-    {
-        "id": "69cb0fd8590bb25d",
-        "type": "delay",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "pauseType": "rate",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": true,
-        "allowrate": false,
-        "outputs": 2,
-        "x": 590,
-        "y": 280,
-        "wires": [
-            [
-                "fb0e57e93f47c310"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "ea50fbe1349359e1",
-        "type": "change",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "1",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 560,
-        "y": 640,
-        "wires": [
-            [
-                "8eb9c97ee753ad47"
-            ]
-        ]
-    },
-    {
-        "id": "07ecf00314ac6ae9",
-        "type": "ui_button",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "group": "3b825d13cf529239",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Light On",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "lightbulb_outline",
-        "payload": "1",
-        "payloadType": "num",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 420,
-        "y": 820,
-        "wires": [
-            [
-                "fb0e57e93f47c310"
-            ]
-        ]
-    },
-    {
-        "id": "e6f3cd723d06774d",
-        "type": "ui_button",
-        "z": "e27178f4cd43f290",
-        "d": true,
-        "name": "",
-        "group": "3b825d13cf529239",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Light Off",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "highlight_off",
-        "payload": "{\"state\":\"OFF\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 820,
-        "y": 820,
-        "wires": [
-            [
-                "79f797fa3c7580fb",
-                "1bb91685c2a77021"
-            ]
-        ]
-    },
-    {
-        "id": "f808bcadec46e197",
-        "type": "change",
-        "z": "e27178f4cd43f290",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$flowContext('Bulb_Ikea_01').countdown",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "control",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1120,
-        "y": 187,
-        "wires": [
-            [
-                "46911587d9e35abd"
-            ]
         ]
     },
     {
@@ -6293,202 +6107,62 @@
         ]
     },
     {
-        "id": "af84d31cc81c1554",
-        "type": "mqtt out",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1790,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "402230a67b7a4f80",
-        "type": "mqtt in",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "topic": "zigbee2mqtt/PIR_SNZB-03_01",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 80,
-        "wires": [
-            [
-                "b27ab9d1c1125823",
-                "c6600d413fadddab"
-            ]
-        ]
-    },
-    {
-        "id": "b27ab9d1c1125823",
-        "type": "switch",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "occupancy",
-        "property": "payload.occupancy",
-        "propertyType": "msg",
-        "rules": [
+        "id": "66075c4940158c4b",
+        "type": "inject",
+        "z": "03d0df180b773622",
+        "name": "occupancy true",
+        "props": [
             {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            },
-            {
-                "t": "neq",
-                "v": "true",
-                "vt": "jsonata"
+                "p": "payload"
             }
         ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 390,
-        "y": 160,
-        "wires": [
-            [
-                "4d9e93748d7a3351",
-                "fba211589bc25de1"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "c6600d413fadddab",
-        "type": "function",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Flow Config",
-        "func": "const occupancy = msg.payload.occupancy;\nnode.warn(`Setting PIR_SNZB-03_01 occupancy [${JSON.stringify(msg.payload.occupancy)}]`);\n\nflow.set(\"PIR_SNZB-03_01\", {\n    \"occupancy\": occupancy\n});\n// flow.set(\"Countdown\", {\n//     \"value\": 133\n// });\n\nflow.set(\"Bulb_Ikea_02\", {\n    \"countdown\": 120,\n    \"light\": {\n        \"state\": \"ON\",\n        \"brightness\": 254,\n        \"color_temp\": \"neutral\"\n    }\n});",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "4d9e93748d7a3351",
-        "type": "time-range-switch",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "lat": "",
-        "lon": "",
-        "startTime": "21:00",
-        "endTime": "06:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 590,
-        "y": 160,
-        "wires": [
-            [
-                "2b77221ca55fda12"
-            ],
-            [
-                "9b7e928faa562adc"
-            ]
-        ]
-    },
-    {
-        "id": "e9997e698fa46624",
-        "type": "countdown",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
         "topic": "",
-        "payloadTimerStart": "true",
-        "payloadTimerStartType": "bool",
-        "payloadTimerStop": "false",
-        "payloadTimerStopType": "bool",
-        "timer": "10",
-        "resetWhileRunning": true,
-        "outputOnReset": true,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 1310,
-        "y": 160,
+        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 180,
         "wires": [
             [
-                "82b2a5f32ff0976c"
-            ],
-            []
+                "c92930ebbbeb4a77"
+            ]
         ]
     },
     {
-        "id": "2b77221ca55fda12",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Set night light",
-        "rules": [
+        "id": "3dbcd206fc1b186e",
+        "type": "inject",
+        "z": "03d0df180b773622",
+        "name": "occupancy false",
+        "props": [
             {
-                "t": "set",
-                "p": "Bulb_Ikea_02.light",
-                "pt": "flow",
-                "to": "{\"state\":\"ON\",\"brightness\":150,\"color_temp\":\"neutral\"}",
-                "tot": "json"
+                "p": "payload"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 860,
-        "y": 120,
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 220,
         "wires": [
             [
-                "9b7e928faa562adc"
+                "c92930ebbbeb4a77"
             ]
         ]
     },
     {
-        "id": "82b2a5f32ff0976c",
-        "type": "function",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Keep ON when occupancy is true",
-        "func": "node.warn(`Message[${JSON.stringify(msg)}]`);\n\nfunction outputOne(msg) {\n    node.warn(`Output 1`)\n    return [msg, null];\n}\nfunction outputTwo(msg) {\n    node.warn(`Output 2[${JSON.stringify(msg)}]`)\n    return [null, msg];\n}\nconst occupancy = flow.get(\"PIR_SNZB-03_01\").occupancy;\nconst countDownValue = flow.get(\"Bulb_Ikea_02\").countdown;\nconst lightOnPayload = flow.get(\"Bulb_Ikea_02\").light;\nconst lightOffPayload = {\n    state: \"OFF\"\n}\n// node.warn(`Light On: ${JSON.stringify(lightOnPayload)}`);\n\nconst coundownStarted = msg.payload;\n\nif (coundownStarted) {\n    node.warn(`Payload[TRUE] - timer started - light on`);\n} else {\n    node.warn(`Payload[FALSE] - timer stoppped - light off`);\n}\n // Stop timer - light off\nif (!coundownStarted && occupancy) {\n    node.warn(`Lights off but occupancy[${occupancy}]`);\n    // topic === 'control' restarts Timer\n    msg.topic = 'control';\n    msg.payload = countDownValue;\n    return outputTwo(msg);\n}\nmsg.payload = coundownStarted ? lightOnPayload : lightOffPayload;\nreturn outputOne(msg);\n\n\n",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1380,
-        "y": 80,
-        "wires": [
-            [
-                "af84d31cc81c1554"
-            ],
-            [
-                "e9997e698fa46624"
-            ]
-        ]
-    },
-    {
-        "id": "7d05f45acf1a52bd",
+        "id": "cdca956567d348eb",
         "type": "ui_gauge",
-        "z": "25b94ca4d48979df",
+        "z": "03d0df180b773622",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 5,
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -6505,30 +6179,29 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 2770,
-        "y": 860,
+        "x": 1310,
+        "y": 160,
         "wires": []
     },
     {
-        "id": "9b7e928faa562adc",
+        "id": "93e20dd105528b91",
         "type": "change",
-        "z": "25b94ca4d48979df",
-        "d": true,
+        "z": "03d0df180b773622",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "topic",
                 "pt": "msg",
-                "to": "$flowContext('Bulb_Ikea_02').countdown",
-                "tot": "jsonata"
+                "to": "I Floor Light is ON",
+                "tot": "str"
             },
             {
                 "t": "set",
-                "p": "topic",
+                "p": "payload",
                 "pt": "msg",
-                "to": "control",
-                "tot": "str"
+                "to": "300",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -6537,432 +6210,43 @@
         "to": "",
         "reg": false,
         "x": 1080,
-        "y": 167,
+        "y": 120,
         "wires": [
             [
-                "e9997e698fa46624"
+                "cdca956567d348eb"
             ]
         ]
     },
     {
-        "id": "f61bfa5c208e99b2",
-        "type": "mqtt in",
-        "z": "25b94ca4d48979df",
-        "d": true,
+        "id": "c92930ebbbeb4a77",
+        "type": "subflow:ce92b488da80a9bb",
+        "z": "03d0df180b773622",
         "name": "",
-        "topic": "zigbee2mqtt/PIR_Aqara_01",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 120,
-        "y": 600,
-        "wires": [
-            [
-                "58c0e3dd06087415",
-                "0cfe83beb44108a9"
-            ]
-        ]
-    },
-    {
-        "id": "58c0e3dd06087415",
-        "type": "function",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Flow Config",
-        "func": "const lux = msg.payload.illuminance_lux;\n//flow.set(\"isDark\", lux < 200 ? 1 : 0); //mytodo remove\n\nconst occupancy = msg.payload.occupancy;\nflow.set(\"PIR_Aqara_01\", {\n    \"occupancy\": occupancy,\n    \"isDark\": lux < 200\n});\n// flow.set(\"Countdown\", {\n//     \"value\": 133\n// });\n\nflow.set(\"RELAY_BASICZBR3\", {\n    \"countdown\": 600\n});",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 390,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "0cfe83beb44108a9",
-        "type": "switch",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "occupancy",
-        "property": "payload.occupancy",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            },
-            {
-                "t": "neq",
-                "v": "true",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 390,
-        "y": 600,
-        "wires": [
-            [
-                "351017390d3d8b19",
-                "fba211589bc25de1"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "351017390d3d8b19",
-        "type": "time-range-switch",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "lat": "",
-        "lon": "",
-        "startTime": "21:00",
-        "endTime": "06:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 630,
-        "y": 560,
-        "wires": [
-            [
-                "2b77221ca55fda12"
-            ],
-            [
-                "899d6b6316cb2ae7"
-            ]
-        ]
-    },
-    {
-        "id": "899d6b6316cb2ae7",
-        "type": "switch",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "flow.isDark?",
-        "property": "PIR_Aqara_01.isDark",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 890,
-        "y": 560,
-        "wires": [
-            [
-                "d0c14599d2d1e69b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "be0ae1dd14178bd3",
-        "type": "countdown",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "payloadTimerStart": "true",
-        "payloadTimerStartType": "bool",
-        "payloadTimerStop": "false",
-        "payloadTimerStopType": "bool",
-        "timer": "10",
-        "resetWhileRunning": true,
-        "outputOnReset": true,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 1490,
-        "y": 540,
-        "wires": [
-            [
-                "29af9cc7c0fe7ffa"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "29af9cc7c0fe7ffa",
-        "type": "function",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Keep Ceiling ON when occupancy is true",
-        "func": "node.warn(`Message[${JSON.stringify(msg)}]`);\n\nfunction outputOne(msg) {\n    node.warn(`Output 1`)\n    return [msg, null];\n}\nfunction outputTwo(msg) {\n    node.warn(`Output 2[${JSON.stringify(msg)}]`)\n    return [null, msg];\n}\nconst occupancy = flow.get(\"PIR_Aqara_01\").occupancy;\nconst countDownValue = flow.get(\"RELAY_BASICZBR3\").countdown;\n\nconst lightOnPayload = {\n    state: \"ON\"\n};\nconst lightOffPayload = {\n    state: \"OFF\"\n};\n// node.warn(`Light On: ${JSON.stringify(lightOnPayload)}`);\n\nconst coundownStarted = msg.payload;\n\nif (coundownStarted) {\n    node.warn(`Payload[TRUE] - timer started - light on`);\n} else {\n    node.warn(`Payload[FALSE] - timer stopped - light off`);\n}\n // Stop timer - light off\nif (!coundownStarted && occupancy) {\n    node.warn(`Lights off but occupancy[${occupancy}]`);\n    // topic === 'control' restarts Timer\n    msg.topic = 'control';\n    msg.payload = countDownValue;\n    return outputTwo(msg);\n}\nmsg.payload = coundownStarted ? lightOnPayload : lightOffPayload;\nreturn outputOne(msg);\n\n\n",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1580,
-        "y": 460,
-        "wires": [
-            [
-                "322c9646bbf9afb4"
-            ],
-            [
-                "be0ae1dd14178bd3"
-            ]
-        ]
-    },
-    {
-        "id": "719d070591347b32",
-        "type": "ui_gauge",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "group": "3b825d13cf529239",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "II Floor Ceiling",
-        "label": "Seconds",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "300",
-        "colors": [
-            "#fff700",
-            "#fff700",
-            "#fff700"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 2600,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "d0c14599d2d1e69b",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$flowContext('RELAY_BASICZBR3').countdown",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "control",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1160,
-        "y": 540,
-        "wires": [
-            [
-                "be0ae1dd14178bd3"
-            ]
-        ]
-    },
-    {
-        "id": "322c9646bbf9afb4",
-        "type": "mqtt out",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Kids Room Ceiling Light",
-        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1970,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "fba211589bc25de1",
-        "type": "link out",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Desk Light Flow Out",
-        "mode": "link",
-        "links": [
-            "4d624a9f70e21a4a"
-        ],
-        "x": 600,
-        "y": 360,
-        "wires": [],
-        "l": true
-    },
-    {
-        "id": "741db797ddec791f",
-        "type": "subflow:47ad76887e14580c",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "II Floor Stairs",
         "env": [
             {
-                "name": "PIR_TOPIC",
-                "value": "zigbee2mqtt/PIR_SNZB-03_01",
-                "type": "str"
+                "name": "TIMEOUT",
+                "value": "120",
+                "type": "num"
             }
         ],
-        "x": 110,
-        "y": 820,
+        "x": 610,
+        "y": 120,
         "wires": [
             [
-                "ea757a05638b7f3c",
-                "2638dd764c95a407"
+                "83e1ae570ac125b4",
+                "e214e0555134d412"
             ],
             [
-                "33da86a46e97c135"
+                "2eefa43b4c7cb9d7"
             ]
         ]
     },
     {
-        "id": "ea757a05638b7f3c",
-        "type": "subflow:c36763b8799fc77d",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "x": 450,
-        "y": 760,
-        "wires": [
-            [
-                "b1324dfaed18042d"
-            ]
-        ]
-    },
-    {
-        "id": "b1324dfaed18042d",
-        "type": "mqtt out",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1010,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "142f820cda4c4cf3",
-        "type": "countdown",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "",
-        "topic": "",
-        "payloadTimerStart": "",
-        "payloadTimerStartType": "nul",
-        "payloadTimerStop": "false",
-        "payloadTimerStopType": "bool",
-        "timer": "10",
-        "resetWhileRunning": true,
-        "outputOnReset": false,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 722,
-        "y": 814,
-        "wires": [
-            [
-                "b1324dfaed18042d"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "33da86a46e97c135",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Set Timeout",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "121",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "control",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 860,
-        "wires": [
-            [
-                "142f820cda4c4cf3"
-            ]
-        ]
-    },
-    {
-        "id": "2638dd764c95a407",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "d": true,
-        "name": "Stop Timer",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 813,
-        "wires": [
-            [
-                "142f820cda4c4cf3"
-            ]
-        ]
-    },
-    {
-        "id": "cce85be822c269c2",
+        "id": "9943e758bfff911c",
         "type": "mqtt in",
-        "z": "25b94ca4d48979df",
-        "name": "2nd floor stairs PIR ",
-        "topic": "zigbee2mqtt/PIR_SNZB-03_01",
+        "z": "03d0df180b773622",
+        "name": "1st floor PIR",
+        "topic": "zigbee2mqtt/PIR_SNZB-03_02",
         "qos": "0",
         "datatype": "json",
         "broker": "3ea2a9db3d9d7fd8",
@@ -6970,20 +6254,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1410,
-        "y": 780,
+        "x": 330,
+        "y": 120,
         "wires": [
             [
-                "ace4239e4e51b416"
+                "c92930ebbbeb4a77"
             ]
         ]
     },
     {
-        "id": "577e73421e62ddce",
+        "id": "83e1ae570ac125b4",
         "type": "mqtt out",
-        "z": "25b94ca4d48979df",
-        "name": "2nd floor stairs bulb",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02/set",
+        "z": "03d0df180b773622",
+        "name": "1st floor bulb",
+        "topic": "zigbee2mqtt/Bulb_Ikea_01/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -6992,87 +6276,21 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 2240,
-        "y": 740,
+        "x": 870,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "e5ae3c24f12c1762",
-        "type": "debug",
-        "z": "25b94ca4d48979df",
-        "name": "debug 70",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2340,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "f53062de96305b4b",
-        "type": "debug",
-        "z": "25b94ca4d48979df",
-        "name": "debug 71",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2340,
-        "y": 800,
-        "wires": []
-    },
-    {
-        "id": "0a4e7cc160059570",
+        "id": "2eefa43b4c7cb9d7",
         "type": "change",
-        "z": "25b94ca4d48979df",
+        "z": "03d0df180b773622",
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "II Floor Light is OFF",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2520,
-        "y": 840,
-        "wires": [
-            [
-                "7d05f45acf1a52bd"
-            ]
-        ]
-    },
-    {
-        "id": "9aa15cc6c7319f90",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "II Floor Light is ON",
+                "to": "I Floor Light is ON",
                 "tot": "str"
             }
         ],
@@ -7081,275 +6299,56 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2520,
-        "y": 900,
+        "x": 1020,
+        "y": 220,
         "wires": [
             [
-                "7d05f45acf1a52bd"
+                "cdca956567d348eb"
             ]
         ]
     },
     {
-        "id": "0162c5f4db2607ef",
-        "type": "delay",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 2340,
-        "y": 840,
-        "wires": [
-            [
-                "0a4e7cc160059570"
-            ]
-        ]
-    },
-    {
-        "id": "afefc467ba67dd08",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "II Floor Light is ON",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2540,
-        "y": 760,
-        "wires": [
-            [
-                "7d05f45acf1a52bd"
-            ]
-        ]
-    },
-    {
-        "id": "47b8c93539593bd6",
-        "type": "inject",
-        "z": "25b94ca4d48979df",
-        "name": "occupancy true",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 1380,
-        "y": 860,
-        "wires": [
-            [
-                "ace4239e4e51b416"
-            ]
-        ]
-    },
-    {
-        "id": "0a47222e7ebd0f86",
-        "type": "inject",
-        "z": "25b94ca4d48979df",
-        "name": "occupancy false",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 1380,
-        "y": 920,
-        "wires": [
-            [
-                "ace4239e4e51b416"
-            ]
-        ]
-    },
-    {
-        "id": "1404dab74b691b8a",
-        "type": "mqtt in",
-        "z": "25b94ca4d48979df",
-        "name": "kid's room PIR/brightness sensor",
-        "topic": "zigbee2mqtt/PIR_Aqara_01",
-        "qos": "0",
-        "datatype": "json",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1229,
-        "y": 288,
-        "wires": [
-            [
-                "fe1ccb125a928d3e"
-            ]
-        ]
-    },
-    {
-        "id": "55c59f99a8773535",
-        "type": "mqtt out",
-        "z": "25b94ca4d48979df",
-        "name": "Kids Room Ceiling Light",
-        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 2030,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "fe1ccb125a928d3e",
+        "id": "e214e0555134d412",
         "type": "switch",
-        "z": "25b94ca4d48979df",
-        "name": "occupancy",
-        "property": "payload.occupancy",
+        "z": "03d0df180b773622",
+        "name": "",
+        "property": "payload.state",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
+                "v": "ON",
+                "vt": "str"
             },
             {
-                "t": "neq",
-                "v": "true",
-                "vt": "jsonata"
+                "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1470,
-        "y": 280,
+        "x": 850,
+        "y": 140,
         "wires": [
             [
-                "d3cd1752eca03170",
-                "09013432c187eac3"
+                "93e20dd105528b91"
             ],
             [
-                "54f2461176da3d7e"
+                "db1c1ccdc53cc350"
             ]
         ]
     },
     {
-        "id": "d3cd1752eca03170",
-        "type": "subflow:c36763b8799fc77d",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "x": 1720,
-        "y": 280,
-        "wires": [
-            [
-                "55c59f99a8773535",
-                "500677099d187a12"
-            ]
-        ]
-    },
-    {
-        "id": "54f2461176da3d7e",
-        "type": "countdown",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "topic": "",
-        "payloadTimerStart": "",
-        "payloadTimerStartType": "nul",
-        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":10}",
-        "payloadTimerStopType": "json",
-        "timer": "1200",
-        "resetWhileRunning": true,
-        "outputOnReset": false,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 1710,
-        "y": 400,
-        "wires": [
-            [
-                "55c59f99a8773535",
-                "cdbf26bfc2a2d193"
-            ],
-            [
-                "61337caa12dd38e1"
-            ]
-        ]
-    },
-    {
-        "id": "09013432c187eac3",
+        "id": "db1c1ccdc53cc350",
         "type": "change",
-        "z": "25b94ca4d48979df",
-        "name": "stop timer",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1700,
-        "y": 340,
-        "wires": [
-            [
-                "54f2461176da3d7e"
-            ]
-        ]
-    },
-    {
-        "id": "6198c17a9d879cf7",
-        "type": "change",
-        "z": "25b94ca4d48979df",
+        "z": "03d0df180b773622",
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "II Floor Light is OFF",
+                "to": "I Floor Light is OFF",
                 "tot": "str"
             },
             {
@@ -7365,201 +6364,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2320,
-        "y": 340,
+        "x": 1080,
+        "y": 160,
         "wires": [
             [
-                "719d070591347b32"
-            ]
-        ]
-    },
-    {
-        "id": "61337caa12dd38e1",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "II Floor Light is ON",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2320,
-        "y": 400,
-        "wires": [
-            [
-                "719d070591347b32"
-            ]
-        ]
-    },
-    {
-        "id": "500677099d187a12",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "II Floor Light is ON",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2320,
-        "y": 300,
-        "wires": [
-            [
-                "719d070591347b32"
-            ]
-        ]
-    },
-    {
-        "id": "cdbf26bfc2a2d193",
-        "type": "delay",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 2120,
-        "y": 340,
-        "wires": [
-            [
-                "6198c17a9d879cf7"
-            ]
-        ]
-    },
-    {
-        "id": "ace4239e4e51b416",
-        "type": "switch",
-        "z": "25b94ca4d48979df",
-        "name": "occupancy",
-        "property": "payload.occupancy",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "true",
-                "vt": "jsonata"
-            },
-            {
-                "t": "neq",
-                "v": "true",
-                "vt": "jsonata"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1710,
-        "y": 780,
-        "wires": [
-            [
-                "50b240b6a65c3d93",
-                "9547df48ccff86aa"
-            ],
-            [
-                "9e98b3d828bf2f50"
-            ]
-        ]
-    },
-    {
-        "id": "50b240b6a65c3d93",
-        "type": "subflow:c36763b8799fc77d",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "x": 1940,
-        "y": 760,
-        "wires": [
-            [
-                "577e73421e62ddce",
-                "e5ae3c24f12c1762",
-                "afefc467ba67dd08"
-            ]
-        ]
-    },
-    {
-        "id": "9e98b3d828bf2f50",
-        "type": "countdown",
-        "z": "25b94ca4d48979df",
-        "name": "",
-        "topic": "",
-        "payloadTimerStart": "",
-        "payloadTimerStartType": "nul",
-        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":10}",
-        "payloadTimerStopType": "json",
-        "timer": "120",
-        "resetWhileRunning": true,
-        "outputOnReset": false,
-        "setTimeToNewWhileRunning": true,
-        "startCountdownOnControlMessage": true,
-        "x": 1930,
-        "y": 880,
-        "wires": [
-            [
-                "577e73421e62ddce",
-                "0162c5f4db2607ef",
-                "f53062de96305b4b"
-            ],
-            [
-                "9aa15cc6c7319f90"
-            ]
-        ]
-    },
-    {
-        "id": "9547df48ccff86aa",
-        "type": "change",
-        "z": "25b94ca4d48979df",
-        "name": "stop timer",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "false",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1920,
-        "y": 820,
-        "wires": [
-            [
-                "9e98b3d828bf2f50"
+                "cdca956567d348eb"
             ]
         ]
     },
@@ -7628,12 +6437,13 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 310,
-        "y": 200,
+        "x": 250,
+        "y": 340,
         "wires": [
             [
                 "34e23ac3af5d60bc",
-                "badb9afa71a7f63d"
+                "badb9afa71a7f63d",
+                "78cb806cb93dd956"
             ],
             [
                 "1649bf45b1ca9891",
@@ -7700,7 +6510,7 @@
         "to": "",
         "reg": false,
         "x": 590,
-        "y": 300,
+        "y": 480,
         "wires": [
             [
                 "40c81fd7a5155e0d",
@@ -7800,7 +6610,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
+        "x": 580,
         "y": 420,
         "wires": [
             [
@@ -7839,6 +6649,7 @@
         "id": "badb9afa71a7f63d",
         "type": "change",
         "z": "4769076e30583f2e",
+        "d": true,
         "name": "toggle",
         "rules": [
             {
@@ -7863,6 +6674,33 @@
         ]
     },
     {
+        "id": "78cb806cb93dd956",
+        "type": "change",
+        "z": "4769076e30583f2e",
+        "name": "toggle",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"state\":\"TOGGLE\",\"color_temp\":\"neutral\",\"brightness\":254}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 300,
+        "wires": [
+            [
+                "40c81fd7a5155e0d"
+            ]
+        ]
+    },
+    {
         "id": "734d8381c14eb46f",
         "type": "mqtt in",
         "z": "e86e32e3984d7a10",
@@ -7875,7 +6713,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 290,
+        "x": 250,
         "y": 120,
         "wires": [
             [
@@ -7893,7 +6731,7 @@
         "tls": true,
         "name": "x5ht7lb6@duck.com",
         "dname": "",
-        "x": 920,
+        "x": 880,
         "y": 120,
         "wires": []
     },
@@ -7923,7 +6761,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 680,
+        "x": 640,
         "y": 120,
         "wires": [
             [
@@ -7946,11 +6784,12 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 490,
+        "x": 450,
         "y": 120,
         "wires": [
             [
-                "809ced3214fe050a"
+                "809ced3214fe050a",
+                "bfc8df5c1a440313"
             ]
         ]
     },
@@ -7971,12 +6810,477 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"contact\":false,\"linkquality\":63,\"tamper\":false,\"voltage\":3100}",
         "payloadType": "json",
-        "x": 250,
+        "x": 210,
         "y": 200,
         "wires": [
             [
                 "002a5eb6eb650ca6"
             ]
+        ]
+    },
+    {
+        "id": "9e750af3be7b64c8",
+        "type": "ui_text",
+        "z": "e86e32e3984d7a10",
+        "group": "3b7c9cd86fb22b9a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Open within 24h",
+        "format": "{{msg.count}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 980,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b6ae998389b4ec71",
+        "type": "counter",
+        "z": "e86e32e3984d7a10",
+        "name": "Open within 24h",
+        "init": "0",
+        "step": "1",
+        "lower": "",
+        "upper": "",
+        "mode": "increment",
+        "outputs": "1",
+        "x": 740,
+        "y": 340,
+        "wires": [
+            [
+                "9e750af3be7b64c8"
+            ]
+        ]
+    },
+    {
+        "id": "7f87064e04a65b54",
+        "type": "inject",
+        "z": "e86e32e3984d7a10",
+        "name": "Reset every 24h",
+        "props": [
+            {
+                "p": "reset",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "10 00 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "b6ae998389b4ec71"
+            ]
+        ]
+    },
+    {
+        "id": "f495bf6e00b170e7",
+        "type": "counter",
+        "z": "e86e32e3984d7a10",
+        "name": "Open within 48h",
+        "init": "0",
+        "step": "1",
+        "lower": "",
+        "upper": "",
+        "mode": "increment",
+        "outputs": "1",
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "05fc55b09c6566bf"
+            ]
+        ]
+    },
+    {
+        "id": "f7fb07ccdf63870e",
+        "type": "counter",
+        "z": "e86e32e3984d7a10",
+        "name": "Open within 7days",
+        "init": "0",
+        "step": "1",
+        "lower": "",
+        "upper": "",
+        "mode": "increment",
+        "outputs": "1",
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "b6b2682b2ce1ef2e"
+            ]
+        ]
+    },
+    {
+        "id": "05fc55b09c6566bf",
+        "type": "ui_text",
+        "z": "e86e32e3984d7a10",
+        "group": "3b7c9cd86fb22b9a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Open within 48h",
+        "format": "{{msg.count}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 980,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b6b2682b2ce1ef2e",
+        "type": "ui_text",
+        "z": "e86e32e3984d7a10",
+        "group": "3b7c9cd86fb22b9a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Open within 7 days",
+        "format": "{{msg.count}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 990,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "107f08977d91fa97",
+        "type": "inject",
+        "z": "e86e32e3984d7a10",
+        "name": "Reset every 48h",
+        "props": [
+            {
+                "p": "reset",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "repeat": "172800",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "f495bf6e00b170e7"
+            ]
+        ]
+    },
+    {
+        "id": "395fc4fee333dbad",
+        "type": "inject",
+        "z": "e86e32e3984d7a10",
+        "name": "Reset every 7 days",
+        "props": [
+            {
+                "p": "reset",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "45 00 * * 1",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 380,
+        "y": 520,
+        "wires": [
+            [
+                "f7fb07ccdf63870e"
+            ]
+        ]
+    },
+    {
+        "id": "24579bcb.5c9814",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 16 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "It is 4pm on a weekday!",
+        "payloadType": "str",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "145b508a.f3325f"
+            ]
+        ]
+    },
+    {
+        "id": "145b508a.f3325f",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 370,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "737ec844.a9a218",
+        "type": "trigger",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "op1": "",
+        "op2": "1",
+        "op1type": "nul",
+        "op2type": "num",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "outputs": 1,
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "6ec839c8.f7578"
+            ]
+        ]
+    },
+    {
+        "id": "a093533.65d163",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 730,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "653bee85.b01298",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "New Unit",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 145,
+        "y": 280,
+        "wires": [
+            [
+                "368cd45a.3160a4"
+            ]
+        ]
+    },
+    {
+        "id": "6ec839c8.f7578",
+        "type": "function",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "func": "c = msg.payload\nf = flow.get(\"counter\")\no = c+f\n\nflow.set(\"counter\",o)\nnode.status({fill:\"green\",shape:\"dot\",text:\"count:\"+o});\nreturn {payload:{counter:o}};",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "a093533.65d163",
+                "737ec844.a9a218"
+            ]
+        ]
+    },
+    {
+        "id": "368cd45a.3160a4",
+        "type": "function",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "func": "flow.set(\"counter\",0)\nreturn {payload:{unit:true}};\n\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 285,
+        "y": 280,
+        "wires": [
+            [
+                "737ec844.a9a218"
+            ]
+        ]
+    },
+    {
+        "id": "bec935a3.98b75",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "decrement",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "bc1de050.491f98"
+            ]
+        ]
+    },
+    {
+        "id": "8d22dd31.8495f",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "increment",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "5e368c1.8e22f74"
+            ]
+        ]
+    },
+    {
+        "id": "dc3ba493.e19b8",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "reset",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "e070ec23.46e298"
+            ]
+        ]
+    },
+    {
+        "id": "5e368c1.8e22f74",
+        "type": "function",
+        "z": "e1b8a77c64d29e6e",
+        "name": "msg object",
+        "func": "msg.increment = 0.0614;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "ec0aac11.59f39"
+            ]
+        ]
+    },
+    {
+        "id": "e070ec23.46e298",
+        "type": "function",
+        "z": "e1b8a77c64d29e6e",
+        "name": "msg object",
+        "func": "msg.reset=\"0\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 560,
+        "wires": [
+            [
+                "ec0aac11.59f39"
+            ]
+        ]
+    },
+    {
+        "id": "bc1de050.491f98",
+        "type": "function",
+        "z": "e1b8a77c64d29e6e",
+        "name": "msg object",
+        "func": "msg.decrement = 0.0614;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 520,
+        "wires": [
+            [
+                "ec0aac11.59f39"
+            ]
+        ]
+    },
+    {
+        "id": "cfa2a769.e50bf8",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "count",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 737.9999694824219,
+        "y": 493.0000305175781,
+        "wires": []
+    },
+    {
+        "id": "ec0aac11.59f39",
+        "type": "counter",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "init": "0",
+        "step": "0",
+        "lower": "",
+        "upper": "",
+        "mode": "increment",
+        "outputs": 2,
+        "x": 540,
+        "y": 500,
+        "wires": [
+            [
+                "cfa2a769.e50bf8"
+            ],
+            []
         ]
     }
 ]
