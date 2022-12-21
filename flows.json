@@ -19,8 +19,8 @@
         "id": "d0aa97dc7a4bc04f",
         "type": "tab",
         "label": "2nd Floor Desk",
-        "disabled": false,
-        "info": "",
+        "disabled": true,
+        "info": "Interesting:\n- passing flow to other flow\n- checking Tasmota switch state\n- writing data to a file",
         "env": []
     },
     {
@@ -98,6 +98,14 @@
         "id": "e1b8a77c64d29e6e",
         "type": "tab",
         "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f0ef22c0b696182f",
+        "type": "tab",
+        "label": "2nd Floor Desk v2",
         "disabled": false,
         "info": "",
         "env": []
@@ -2017,7 +2025,8 @@
         "name": "Desk Light Flow Out",
         "mode": "link",
         "links": [
-            "4d624a9f70e21a4a"
+            "4d624a9f70e21a4a",
+            "508a9cdce2168218"
         ],
         "x": 620,
         "y": 340,
@@ -7053,9 +7062,11 @@
         "op2type": "num",
         "duration": "5",
         "extend": false,
+        "overrideDelay": false,
         "units": "s",
         "reset": "",
         "bytopic": "all",
+        "topic": "topic",
         "outputs": 1,
         "x": 420,
         "y": 280,
@@ -7076,6 +7087,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 730,
         "y": 280,
         "wires": []
@@ -7105,9 +7118,12 @@
         "type": "function",
         "z": "e1b8a77c64d29e6e",
         "name": "",
-        "func": "c = msg.payload\nf = flow.get(\"counter\")\no = c+f\n\nflow.set(\"counter\",o)\nnode.status({fill:\"green\",shape:\"dot\",text:\"count:\"+o});\nreturn {payload:{counter:o}};",
+        "func": "const c = msg.payload\nconst f = flow.get(\"counter\")\nconst o = c+f\n\nflow.set(\"counter\",o)\nnode.status({fill:\"green\",shape:\"dot\",text:\"count:\"+o});\nreturn {payload:{counter:o}};",
         "outputs": 1,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 560,
         "y": 280,
         "wires": [
@@ -7125,8 +7141,11 @@
         "func": "flow.set(\"counter\",0)\nreturn {payload:{unit:true}};\n\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 285,
-        "y": 280,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 240,
         "wires": [
             [
                 "737ec844.a9a218"
@@ -7250,37 +7269,643 @@
         ]
     },
     {
-        "id": "cfa2a769.e50bf8",
-        "type": "debug",
-        "z": "e1b8a77c64d29e6e",
-        "name": "count",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 737.9999694824219,
-        "y": 493.0000305175781,
-        "wires": []
-    },
-    {
         "id": "ec0aac11.59f39",
         "type": "counter",
         "z": "e1b8a77c64d29e6e",
         "name": "",
         "init": "0",
-        "step": "0",
-        "lower": "",
-        "upper": "",
+        "step": "1",
+        "lower": null,
+        "upper": null,
         "mode": "increment",
         "outputs": 2,
-        "x": 540,
+        "x": 620,
         "y": 500,
         "wires": [
             [
-                "cfa2a769.e50bf8"
+                "a60bc61807f404f0"
             ],
             []
         ]
+    },
+    {
+        "id": "5f32e0acea573790",
+        "type": "mqtt in",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "topic": "zigbee2mqtt/PIR_Aqara_01",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 720,
+        "wires": [
+            [
+                "7a8668b292658617",
+                "67bf8392d8098db1"
+            ]
+        ]
+    },
+    {
+        "id": "b4ebfb1c2ac05cb5",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "28*C",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"device_temperature\":28,\"illuminance\":47,\"illuminance_lux\":47,\"linkquality\":48,\"occupancy\":false,\"power_outage_count\":7,\"voltage\":3015}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 820,
+        "wires": [
+            [
+                "67bf8392d8098db1"
+            ]
+        ]
+    },
+    {
+        "id": "442c244f291a0704",
+        "type": "file",
+        "z": "e1b8a77c64d29e6e",
+        "d": true,
+        "name": "",
+        "filename": "/share/aqara-temp.log",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 800,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a8668b292658617",
+        "type": "function",
+        "z": "e1b8a77c64d29e6e",
+        "d": true,
+        "name": "Add timestamp to payload",
+        "func": "const datetime = new Date().toLocaleString();\nmsg.payload = `[${datetime}] ${msg.payload.device_temperature}`;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "442c244f291a0704"
+            ]
+        ]
+    },
+    {
+        "id": "67bf8392d8098db1",
+        "type": "switch",
+        "z": "e1b8a77c64d29e6e",
+        "name": "is cold?",
+        "property": "payload.device_temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "19",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "23",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 400,
+        "y": 860,
+        "wires": [
+            [
+                "438387969436762f",
+                "a8e8bd0162651e63"
+            ],
+            [
+                "84fd2b5476acf986"
+            ]
+        ]
+    },
+    {
+        "id": "d2d130683e866e62",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "debug Heat On",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "84fd2b5476acf986",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "debug Heat Off",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "438387969436762f",
+        "type": "countdown",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "topic": "",
+        "payloadTimerStart": "true",
+        "payloadTimerStartType": "bool",
+        "payloadTimerStop": "false",
+        "payloadTimerStopType": "bool",
+        "timer": "7",
+        "resetWhileRunning": true,
+        "outputOnReset": false,
+        "setTimeToNewWhileRunning": true,
+        "startCountdownOnControlMessage": true,
+        "x": 650,
+        "y": 820,
+        "wires": [
+            [
+                "c2322e4ce8b0f6f8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c2322e4ce8b0f6f8",
+        "type": "switch",
+        "z": "e1b8a77c64d29e6e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 800,
+        "wires": [
+            [
+                "d2d130683e866e62"
+            ],
+            [
+                "84fd2b5476acf986"
+            ]
+        ]
+    },
+    {
+        "id": "9793a2c9cc635d39",
+        "type": "inject",
+        "z": "e1b8a77c64d29e6e",
+        "name": "18*C",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"device_temperature\":18,\"illuminance\":47,\"illuminance_lux\":47,\"linkquality\":48,\"occupancy\":false,\"power_outage_count\":7,\"voltage\":3015}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 900,
+        "wires": [
+            [
+                "67bf8392d8098db1"
+            ]
+        ]
+    },
+    {
+        "id": "a8e8bd0162651e63",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "debug 76",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "a60bc61807f404f0",
+        "type": "debug",
+        "z": "e1b8a77c64d29e6e",
+        "name": "debug 78",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "0159e193b35dc93d",
+        "type": "ui_gauge",
+        "z": "f0ef22c0b696182f",
+        "name": "",
+        "group": "3b825d13cf529239",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Kid's Desk",
+        "label": "Seconds",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "600",
+        "colors": [
+            "#fff700",
+            "#fff700",
+            "#fff700"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1070,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a70a94eea0c32b72",
+        "type": "mqtt out",
+        "z": "f0ef22c0b696182f",
+        "name": "",
+        "topic": "cmnd/sonoff_smartswitch01/POWER",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 1150,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3519d59eba39f2f8",
+        "type": "debug",
+        "z": "f0ef22c0b696182f",
+        "d": true,
+        "name": "debug 82",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1600,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "36e2b454d502d8ad",
+        "type": "mqtt in",
+        "z": "f0ef22c0b696182f",
+        "name": "Science Room PIR ",
+        "topic": "zigbee2mqtt/PIR_SNZB-03_03",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "d74caf78c62e4f1e"
+            ]
+        ]
+    },
+    {
+        "id": "acbf0513271a4fcb",
+        "type": "inject",
+        "z": "f0ef22c0b696182f",
+        "name": "occupancy true",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "d74caf78c62e4f1e"
+            ]
+        ]
+    },
+    {
+        "id": "92418752d374904a",
+        "type": "inject",
+        "z": "f0ef22c0b696182f",
+        "name": "occupancy false",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "d74caf78c62e4f1e"
+            ]
+        ]
+    },
+    {
+        "id": "13a1c2d145877346",
+        "type": "change",
+        "z": "f0ef22c0b696182f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Desk Light is ON",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "600",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 160,
+        "wires": [
+            [
+                "0159e193b35dc93d"
+            ]
+        ]
+    },
+    {
+        "id": "d74caf78c62e4f1e",
+        "type": "subflow:ce92b488da80a9bb",
+        "z": "f0ef22c0b696182f",
+        "name": "",
+        "env": [
+            {
+                "name": "TIMEOUT",
+                "value": "600",
+                "type": "num"
+            }
+        ],
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "a8a8f90daa726fa3"
+            ],
+            [
+                "f4cccd67f51cf31e"
+            ]
+        ]
+    },
+    {
+        "id": "f4cccd67f51cf31e",
+        "type": "change",
+        "z": "f0ef22c0b696182f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Desk Light is ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 280,
+        "wires": [
+            [
+                "0159e193b35dc93d"
+            ]
+        ]
+    },
+    {
+        "id": "a8a8f90daa726fa3",
+        "type": "switch",
+        "z": "f0ef22c0b696182f",
+        "name": "is on?",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "13a1c2d145877346",
+                "b4b59afdbce5f625"
+            ],
+            [
+                "50b9d1fe3be7a120",
+                "d07eaecb2220e5e9"
+            ]
+        ]
+    },
+    {
+        "id": "50b9d1fe3be7a120",
+        "type": "change",
+        "z": "f0ef22c0b696182f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Desk Light is OFF",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 220,
+        "wires": [
+            [
+                "0159e193b35dc93d"
+            ]
+        ]
+    },
+    {
+        "id": "b4b59afdbce5f625",
+        "type": "change",
+        "z": "f0ef22c0b696182f",
+        "name": "ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 60,
+        "wires": [
+            [
+                "a70a94eea0c32b72",
+                "d629ed5807a5cb1c"
+            ]
+        ]
+    },
+    {
+        "id": "d07eaecb2220e5e9",
+        "type": "change",
+        "z": "f0ef22c0b696182f",
+        "name": "OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 100,
+        "wires": [
+            [
+                "a70a94eea0c32b72",
+                "d629ed5807a5cb1c"
+            ]
+        ]
+    },
+    {
+        "id": "d629ed5807a5cb1c",
+        "type": "debug",
+        "z": "f0ef22c0b696182f",
+        "name": "debug 83",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 20,
+        "wires": []
     }
 ]
