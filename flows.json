@@ -67,7 +67,7 @@
         "id": "7ea9894b62d00340",
         "type": "tab",
         "label": "Playground 1",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -316,8 +316,8 @@
         ],
         "out": [
             {
-                "x": 1440,
-                "y": 100,
+                "x": 1580,
+                "y": 80,
                 "wires": [
                     {
                         "id": "bd7e9ef0e3061caa",
@@ -330,8 +330,8 @@
                 ]
             },
             {
-                "x": 1440,
-                "y": 240,
+                "x": 1580,
+                "y": 220,
                 "wires": [
                     {
                         "id": "f1ebfec39651a32e",
@@ -359,13 +359,13 @@
                 }
             },
             {
-                "name": "NIGHT_BRIGHTNESS",
+                "name": "NIGHT_TIMEOUT",
                 "type": "num",
-                "value": "150",
+                "value": "5",
                 "ui": {
-                    "icon": "font-awesome/fa-lightbulb-o",
+                    "icon": "font-awesome/fa-hourglass-half",
                     "label": {
-                        "en-US": "Bulb Night Brightness"
+                        "en-US": "Night Timeout"
                     },
                     "type": "input",
                     "opts": {
@@ -427,13 +427,13 @@
                 }
             },
             {
-                "name": "NIGHT_TIMEOUT",
+                "name": "NIGHT_BRIGHTNESS",
                 "type": "num",
-                "value": "5",
+                "value": "150",
                 "ui": {
-                    "icon": "font-awesome/fa-hourglass-half",
+                    "icon": "font-awesome/fa-lightbulb-o",
                     "label": {
-                        "en-US": "Night Timeout"
+                        "en-US": "Night Brightness"
                     },
                     "type": "input",
                     "opts": {
@@ -446,6 +446,152 @@
         ],
         "meta": {},
         "color": "#DDAA99"
+    },
+    {
+        "id": "0230ded9ff0f120f",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [],
+        "out": []
+    },
+    {
+        "id": "cb7cf013bfa17c66",
+        "type": "subflow",
+        "name": "set light payload v2",
+        "info": "# Set Light Payload\n\nThis subflow check if it is a night time or day time and sets corresponding light settigs.\n\n## Input\nAnything\n\n## Outputs\n\nPayload for light (Ikea bulbs): \n- Output I: night \n- Output II: day\n\n{\n   \"state\": \"ON\",\n   \"brightness\": $env('NIGHT_BRIGHTNESS'),\n   \"color_temp\": 340\n}\n\n```json\n$ ~> |$|{\"state\": $env('NIGHT_BRIGHTNESS') > 0 ? \"ON\" : \"OFF\", \"brightness\": $env('NIGHT_BRIGHTNESS')}|\n```\n\n```json\n{\n   \"state\": \"ON\",\n   \"brightness\": $env('NIGHT_BRIGHTNESS'),\n   \"color_temp\": 340\n}\n```",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "54b284972a2d56a9"
+                    },
+                    {
+                        "id": "83088b10c4187bf3"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1206,
+                "y": 109,
+                "wires": [
+                    {
+                        "id": "e360c8e62748dd4a",
+                        "port": 0
+                    },
+                    {
+                        "id": "fa0d289c7b8f427a",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "NIGHT_BRIGHTNESS",
+                "type": "num",
+                "value": "100",
+                "ui": {
+                    "icon": "font-awesome/fa-lightbulb-o",
+                    "label": {
+                        "en-US": "Bulb Night Brightness"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "json",
+                            "env"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "NIGHT_TIME",
+                "type": "str",
+                "value": "21:00",
+                "ui": {
+                    "icon": "font-awesome/fa-clock-o",
+                    "label": {
+                        "en-US": "Night Time"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "env"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "DAY_TIME",
+                "type": "str",
+                "value": "06:00",
+                "ui": {
+                    "icon": "font-awesome/fa-clock-o",
+                    "label": {
+                        "en-US": "Day Time"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "env"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "DARKNESS_THRESHOLD",
+                "type": "num",
+                "value": "200",
+                "ui": {
+                    "icon": "font-awesome/fa-low-vision",
+                    "label": {
+                        "en-US": "Darkness Threshold [LUX]"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "json",
+                            "env"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "64b9e597ca308567",
+        "type": "group",
+        "z": "4769076e30583f2e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "1f6185e980a0d76e",
+            "8a638e9042079b6f",
+            "761752eb212b75d2"
+        ],
+        "x": 914,
+        "y": 19
     },
     {
         "id": "c8bf62168f8a7f4a",
@@ -485,12 +631,6 @@
                 "b6ae998389b4ec71"
             ]
         ]
-    },
-    {
-        "id": "c2dff347.6d813",
-        "type": "server",
-        "name": "Home Assistant",
-        "addon": true
     },
     {
         "id": "3ea2a9db3d9d7fd8",
@@ -665,20 +805,6 @@
         "order": 2,
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "7a554823.e94b48",
-        "type": "server",
-        "name": "Home Assistant",
-        "addon": true,
-        "rejectUnauthorizedCerts": true,
-        "ha_boolean": "",
-        "connectionDelay": false,
-        "cacheJson": false,
-        "heartbeat": false,
-        "heartbeatInterval": "",
-        "statusSeparator": "",
-        "enableGlobalContextStore": false
     },
     {
         "id": "3b7c9cd86fb22b9a",
@@ -1206,7 +1332,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 650,
+        "x": 790,
         "y": 120,
         "wires": [
             [
@@ -1255,8 +1381,8 @@
                 "type": "env"
             }
         ],
-        "x": 1100,
-        "y": 100,
+        "x": 1240,
+        "y": 80,
         "wires": [
             []
         ]
@@ -1276,8 +1402,8 @@
         "outputOnReset": false,
         "setTimeToNewWhileRunning": true,
         "startCountdownOnControlMessage": true,
-        "x": 1090,
-        "y": 220,
+        "x": 1230,
+        "y": 200,
         "wires": [
             [],
             []
@@ -1302,8 +1428,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 160,
+        "x": 1220,
+        "y": 140,
         "wires": [
             [
                 "f1ebfec39651a32e"
@@ -1333,8 +1459,8 @@
         "z": "ce92b488da80a9bb",
         "name": "turns light on/off",
         "info": "",
-        "x": 1560,
-        "y": 100,
+        "x": 1700,
+        "y": 80,
         "wires": []
     },
     {
@@ -1343,8 +1469,8 @@
         "z": "ce92b488da80a9bb",
         "name": "countdown steps",
         "info": "",
-        "x": 1560,
-        "y": 240,
+        "x": 1700,
+        "y": 220,
         "wires": []
     },
     {
@@ -1388,7 +1514,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
+        "x": 560,
         "y": 60,
         "wires": [
             [
@@ -1416,7 +1542,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
+        "x": 560,
         "y": 180,
         "wires": [
             [
@@ -1451,8 +1577,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 860,
-        "y": 200,
+        "x": 1000,
+        "y": 180,
         "wires": [
             [
                 "f1ebfec39651a32e",
@@ -1509,6 +1635,273 @@
         "statusType": "auto",
         "x": 510,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e360c8e62748dd4a",
+        "type": "change",
+        "z": "cb7cf013bfa17c66",
+        "name": "Set night light",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"state\": $env('NIGHT_BRIGHTNESS') > 0 ? \"ON\" : \"OFF\",\t   \"brightness\": $env('NIGHT_BRIGHTNESS'),\t   \"color_temp\": 340\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 110,
+        "wires": [
+            [
+                "b88939eb1478ef68"
+            ]
+        ]
+    },
+    {
+        "id": "fa0d289c7b8f427a",
+        "type": "change",
+        "z": "cb7cf013bfa17c66",
+        "name": "Set day light",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"state\":\"ON\",\"color_temp\":340,\"brightness\":254}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 983,
+        "y": 207,
+        "wires": [
+            [
+                "b88939eb1478ef68"
+            ]
+        ]
+    },
+    {
+        "id": "54b284972a2d56a9",
+        "type": "time-range-switch",
+        "z": "cb7cf013bfa17c66",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "startTime": "${NIGHT_TIME}",
+        "endTime": "${DAY_TIME}",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "e360c8e62748dd4a",
+                "7a27bf6ddf5cb728"
+            ],
+            [
+                "dbf74ca8148e0a3c",
+                "73e5040742c24e8e"
+            ]
+        ]
+    },
+    {
+        "id": "b88939eb1478ef68",
+        "type": "debug",
+        "z": "cb7cf013bfa17c66",
+        "name": "debug 60",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "530e5584d9bced3f",
+        "type": "switch",
+        "z": "cb7cf013bfa17c66",
+        "name": "isDark?",
+        "property": "payload.illuminance_lux",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "DARKNESS_THRESHOLD",
+                "vt": "env"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 766,
+        "y": 160,
+        "wires": [
+            [
+                "fa0d289c7b8f427a",
+                "49162b87cc2c9e27"
+            ],
+            [
+                "04710b3e733964be"
+            ]
+        ]
+    },
+    {
+        "id": "dbf74ca8148e0a3c",
+        "type": "debug",
+        "z": "cb7cf013bfa17c66",
+        "name": "debug 74",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7a27bf6ddf5cb728",
+        "type": "debug",
+        "z": "cb7cf013bfa17c66",
+        "name": "debug 75",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "49162b87cc2c9e27",
+        "type": "debug",
+        "z": "cb7cf013bfa17c66",
+        "name": "sub I",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "04710b3e733964be",
+        "type": "debug",
+        "z": "cb7cf013bfa17c66",
+        "name": "sub III",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "73e5040742c24e8e",
+        "type": "switch",
+        "z": "cb7cf013bfa17c66",
+        "name": "hasBrigthnessSensor",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "illuminance_lux",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 548,
+        "y": 199,
+        "wires": [
+            [
+                "530e5584d9bced3f"
+            ],
+            [
+                "fa0d289c7b8f427a"
+            ]
+        ]
+    },
+    {
+        "id": "83088b10c4187bf3",
+        "type": "change",
+        "z": "cb7cf013bfa17c66",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"DAY_TIME\": $env(\"DAY_TIME\"),\t    \"NIGHT_TIME\": $env(\"NIGHT_TIME\"),\t    \"DARKNESS_THRESHOLD\": $env(\"DARKNESS_THRESHOLD\"),\t    \"NIGHT_BRIGHTNESS\": $env(\"NIGHT_BRIGHTNESS\")\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "1b5424f5b1192867"
+            ]
+        ]
+    },
+    {
+        "id": "1b5424f5b1192867",
+        "type": "debug",
+        "z": "cb7cf013bfa17c66",
+        "name": "Input params",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 280,
         "wires": []
     },
     {
@@ -3061,8 +3454,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1170,
-        "y": 380,
+        "x": 1390,
+        "y": 460,
         "wires": []
     },
     {
@@ -3105,8 +3498,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 170,
-        "y": 320,
+        "x": 390,
+        "y": 400,
         "wires": [
             [
                 "0acfea2a03f174eb"
@@ -3127,8 +3520,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 760,
-        "y": 280,
+        "x": 980,
+        "y": 360,
         "wires": []
     },
     {
@@ -3157,8 +3550,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 380,
+        "x": 1140,
+        "y": 460,
         "wires": [
             [
                 "0a1046cdd264a4cb"
@@ -3184,8 +3577,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 460,
+        "x": 1040,
+        "y": 540,
         "wires": [
             [
                 "0a1046cdd264a4cb"
@@ -3218,8 +3611,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 340,
+        "x": 1140,
+        "y": 420,
         "wires": [
             [
                 "0a1046cdd264a4cb"
@@ -3243,8 +3636,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 140,
-        "y": 400,
+        "x": 360,
+        "y": 480,
         "wires": [
             [
                 "0acfea2a03f174eb"
@@ -3268,8 +3661,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 140,
-        "y": 460,
+        "x": 360,
+        "y": 540,
         "wires": [
             [
                 "0acfea2a03f174eb"
@@ -3293,7 +3686,8 @@
         "y": 127,
         "wires": [
             [
-                "78aa3ea68af623ae"
+                "78aa3ea68af623ae",
+                "ebc98cf72fd8d834"
             ]
         ]
     },
@@ -3397,8 +3791,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1304,
-        "y": 247,
+        "x": 1360,
+        "y": 220,
         "wires": [
             [
                 "ccebe619c5ba5b48"
@@ -3480,10 +3874,15 @@
                 "name": "TIMEOUT",
                 "value": "120",
                 "type": "num"
+            },
+            {
+                "name": "NIGHT_TIME",
+                "value": "20:30",
+                "type": "str"
             }
         ],
-        "x": 450,
-        "y": 320,
+        "x": 670,
+        "y": 400,
         "wires": [
             [
                 "728d9d16c0204722",
@@ -3514,8 +3913,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 696,
-        "y": 359,
+        "x": 916,
+        "y": 439,
         "wires": [
             [
                 "cc7e0df726e5652c"
@@ -3566,6 +3965,26 @@
             [
                 "7a03f3b48c171137"
             ]
+        ]
+    },
+    {
+        "id": "ebc98cf72fd8d834",
+        "type": "time-range-switch",
+        "z": "d142db9d1a2f6e7e",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "startTime": "23:00",
+        "endTime": "06:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "0acfea2a03f174eb"
+            ],
+            []
         ]
     },
     {
@@ -4285,8 +4704,7 @@
         "y": 60,
         "wires": [
             [
-                "a70a94eea0c32b72",
-                "d629ed5807a5cb1c"
+                "a70a94eea0c32b72"
             ]
         ]
     },
@@ -4313,26 +4731,9 @@
         "y": 100,
         "wires": [
             [
-                "a70a94eea0c32b72",
-                "d629ed5807a5cb1c"
+                "a70a94eea0c32b72"
             ]
         ]
-    },
-    {
-        "id": "d629ed5807a5cb1c",
-        "type": "debug",
-        "z": "f0ef22c0b696182f",
-        "name": "debug 83",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1060,
-        "y": 20,
-        "wires": []
     },
     {
         "id": "67b5cb9f6bbf5d07",
@@ -6077,6 +6478,7 @@
         "id": "b507f820e52d9de6",
         "type": "subflow:ce92b488da80a9bb",
         "z": "7ea9894b62d00340",
+        "d": true,
         "name": "",
         "env": [
             {
@@ -6123,11 +6525,12 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 200,
+        "x": 180,
         "y": 600,
         "wires": [
             [
-                "b507f820e52d9de6"
+                "b507f820e52d9de6",
+                "bfc7caafb63cf070"
             ]
         ]
     },
@@ -6152,7 +6555,8 @@
         "y": 660,
         "wires": [
             [
-                "b507f820e52d9de6"
+                "b507f820e52d9de6",
+                "bfc7caafb63cf070"
             ]
         ]
     },
@@ -6321,6 +6725,24 @@
         "wires": [
             [],
             [],
+            []
+        ]
+    },
+    {
+        "id": "bfc7caafb63cf070",
+        "type": "subflow:cb7cf013bfa17c66",
+        "z": "7ea9894b62d00340",
+        "name": "",
+        "env": [
+            {
+                "name": "NIGHT_BRIGHTNESS",
+                "value": "1",
+                "type": "num"
+            }
+        ],
+        "x": 1440,
+        "y": 640,
+        "wires": [
             []
         ]
     },
@@ -6867,8 +7289,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 320,
-        "y": 180,
+        "x": 180,
+        "y": 380,
         "wires": [
             [
                 "c92930ebbbeb4a77"
@@ -6892,8 +7314,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 320,
-        "y": 220,
+        "x": 180,
+        "y": 420,
         "wires": [
             [
                 "c92930ebbbeb4a77"
@@ -6923,8 +7345,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1310,
-        "y": 160,
+        "x": 1170,
+        "y": 360,
         "wires": []
     },
     {
@@ -6953,8 +7375,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 120,
+        "x": 940,
+        "y": 320,
         "wires": [
             [
                 "cdca956567d348eb"
@@ -6974,7 +7396,7 @@
             },
             {
                 "name": "NIGHT_TIME",
-                "value": "23:59",
+                "value": "21:30",
                 "type": "str"
             },
             {
@@ -6983,8 +7405,8 @@
                 "type": "num"
             }
         ],
-        "x": 610,
-        "y": 120,
+        "x": 470,
+        "y": 320,
         "wires": [
             [
                 "e214e0555134d412",
@@ -7008,8 +7430,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 330,
-        "y": 120,
+        "x": 190,
+        "y": 320,
         "wires": [
             [
                 "c92930ebbbeb4a77"
@@ -7035,8 +7457,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1020,
-        "y": 220,
+        "x": 880,
+        "y": 420,
         "wires": [
             [
                 "cdca956567d348eb"
@@ -7063,8 +7485,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 850,
-        "y": 140,
+        "x": 710,
+        "y": 340,
         "wires": [
             [
                 "93e20dd105528b91"
@@ -7100,8 +7522,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 160,
+        "x": 940,
+        "y": 360,
         "wires": [
             [
                 "cdca956567d348eb"
@@ -7122,8 +7544,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1010,
-        "y": 40,
+        "x": 810,
+        "y": 60,
         "wires": []
     },
     {
@@ -7143,8 +7565,8 @@
         "topic": "",
         "payload": "{\"state\":\"ON\",\"brightness\":200,\"color_temp\":\"coolest\"}",
         "payloadType": "json",
-        "x": 330,
-        "y": 340,
+        "x": 450,
+        "y": 60,
         "wires": [
             [
                 "fef17986287c6a93"
@@ -7168,8 +7590,8 @@
         "topic": "",
         "payload": "{\"state\":\"ON\",\"brightness\":200,\"color_temp\":\"cool\"}",
         "payloadType": "json",
-        "x": 330,
-        "y": 380,
+        "x": 450,
+        "y": 100,
         "wires": [
             [
                 "fef17986287c6a93"
@@ -7193,8 +7615,8 @@
         "topic": "",
         "payload": "{\"state\":\"ON\",\"brightness\":200,\"color_temp\":\"neutral\"}",
         "payloadType": "json",
-        "x": 330,
-        "y": 420,
+        "x": 450,
+        "y": 140,
         "wires": [
             [
                 "fef17986287c6a93"
@@ -7218,8 +7640,8 @@
         "topic": "",
         "payload": "{\"state\":\"ON\",\"brightness\":200,\"color_temp\":\"warm\"}",
         "payloadType": "json",
-        "x": 320,
-        "y": 500,
+        "x": 440,
+        "y": 220,
         "wires": [
             [
                 "fef17986287c6a93"
@@ -7241,10 +7663,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"state\":\"ON\",\"brightness\":200,\"color_temp\":340}",
+        "payload": "{\"state\":\"ON\",\"brightness\":150,\"color_temp\":340}",
         "payloadType": "json",
-        "x": 330,
-        "y": 540,
+        "x": 450,
+        "y": 260,
         "wires": [
             [
                 "fef17986287c6a93"
@@ -7268,8 +7690,8 @@
         "topic": "",
         "payload": "{\"state\":\"ON\",\"brightness\":200,\"color_temp\":\"warm\"}",
         "payloadType": "json",
-        "x": 330,
-        "y": 460,
+        "x": 450,
+        "y": 180,
         "wires": [
             [
                 "fef17986287c6a93"
@@ -7280,8 +7702,8 @@
         "id": "66c72f7a0fb65f94",
         "type": "mqtt in",
         "z": "4769076e30583f2e",
-        "name": "Button 01",
-        "topic": "zigbee2mqtt/Button01_SNZB-01",
+        "name": "Button 02",
+        "topic": "zigbee2mqtt/Button02_SNZB-01",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "3ea2a9db3d9d7fd8",
@@ -7718,13 +8140,14 @@
         "id": "1f6185e980a0d76e",
         "type": "countdown",
         "z": "4769076e30583f2e",
+        "g": "64b9e597ca308567",
         "name": "",
         "topic": "",
         "payloadTimerStart": "true",
         "payloadTimerStartType": "bool",
         "payloadTimerStop": "false",
         "payloadTimerStopType": "bool",
-        "timer": "900",
+        "timer": "1800",
         "resetWhileRunning": true,
         "outputOnReset": true,
         "setTimeToNewWhileRunning": true,
@@ -7742,18 +8165,20 @@
         "id": "8a638e9042079b6f",
         "type": "function",
         "z": "4769076e30583f2e",
-        "name": "function 3",
+        "g": "64b9e597ca308567",
+        "name": "disable PIR_Aqara_01 for 300 min",
         "func": "// node.error(`msg payload[${msg.payload}]`);\n// const payloadValue = (msg.payload === true);\nglobal.set('disable_PIR_Aqara_01', msg.payload);\nnode.error('disable_PIR_Aqara_01 [' + global.get('disable_PIR_Aqara_01') + ']');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1320,
+        "x": 1280,
         "y": 120,
         "wires": [
             []
-        ]
+        ],
+        "info": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually"
     },
     {
         "id": "a724518bce1eeec4",
@@ -7882,6 +8307,17 @@
                 "a42694da92fb5aab"
             ]
         ]
+    },
+    {
+        "id": "761752eb212b75d2",
+        "type": "comment",
+        "z": "4769076e30583f2e",
+        "g": "64b9e597ca308567",
+        "name": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually",
+        "info": "",
+        "x": 1200,
+        "y": 60,
+        "wires": []
     },
     {
         "id": "734d8381c14eb46f",
@@ -8765,7 +9201,7 @@
             },
             {
                 "name": "NIGHT_TIME",
-                "value": "23:59",
+                "value": "21:30",
                 "type": "str"
             },
             {
@@ -9055,23 +9491,6 @@
         ]
     },
     {
-        "id": "aa157e2fc5aec60b",
-        "type": "debug",
-        "z": "78ddf6bd666829fb",
-        "name": "debug 84",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 300,
-        "wires": []
-    },
-    {
         "id": "e735c6c6661f61fd",
         "type": "change",
         "z": "78ddf6bd666829fb",
@@ -9094,7 +9513,6 @@
         "y": 240,
         "wires": [
             [
-                "aa157e2fc5aec60b",
                 "ad3f6f0adfb6df19"
             ]
         ]
