@@ -1053,7 +1053,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\t   \"state\": \"ON\",\t   \"brightness\": $env('NIGHT_BRIGHTNESS'),\t   \"color_temp\": 340\t}",
+                "to": "{\t   \"state\": $env('NIGHT_BRIGHTNESS') > 0 ? \"ON\" : \"OFF\",\t   \"brightness\": $env('NIGHT_BRIGHTNESS'),\t   \"color_temp\": 340\t}",
                 "tot": "jsonata"
             }
         ],
@@ -3481,8 +3481,8 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 1664,
-        "y": 167,
+        "x": 1440,
+        "y": 160,
         "wires": []
     },
     {
@@ -3705,8 +3705,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1194,
-        "y": 67,
+        "x": 970,
+        "y": 60,
         "wires": []
     },
     {
@@ -3721,13 +3721,13 @@
                 "type": "num"
             },
             {
-                "name": "NIGHT_TIME",
-                "value": "23:00",
-                "type": "str"
+                "name": "NIGHT_BRIGHTNESS",
+                "value": "0",
+                "type": "num"
             }
         ],
-        "x": 914,
-        "y": 134,
+        "x": 690,
+        "y": 127,
         "wires": [
             [
                 "415752f42559ba53",
@@ -3764,8 +3764,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1364,
-        "y": 107,
+        "x": 1140,
+        "y": 100,
         "wires": [
             [
                 "ccebe619c5ba5b48"
@@ -3791,8 +3791,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1360,
-        "y": 220,
+        "x": 1136,
+        "y": 213,
         "wires": [
             [
                 "ccebe619c5ba5b48"
@@ -3819,8 +3819,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1154,
-        "y": 127,
+        "x": 930,
+        "y": 120,
         "wires": [
             [
                 "86d16dd1e4ca1177"
@@ -3856,8 +3856,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1364,
-        "y": 167,
+        "x": 1140,
+        "y": 160,
         "wires": [
             [
                 "ccebe619c5ba5b48"
@@ -3942,26 +3942,6 @@
         "x": 460,
         "y": 127,
         "wires": [
-            [
-                "46f6114eef969624"
-            ]
-        ]
-    },
-    {
-        "id": "46f6114eef969624",
-        "type": "time-range-switch",
-        "z": "d142db9d1a2f6e7e",
-        "name": "",
-        "lat": "",
-        "lon": "",
-        "startTime": "21:00",
-        "endTime": "06:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 657,
-        "y": 127,
-        "wires": [
-            [],
             [
                 "7a03f3b48c171137"
             ]
@@ -8344,6 +8324,7 @@
         "id": "a338d9883711a43f",
         "type": "e-mail",
         "z": "e86e32e3984d7a10",
+        "d": true,
         "server": "smtp.gmail.com",
         "port": "465",
         "secure": true,
@@ -9191,12 +9172,12 @@
         "env": [
             {
                 "name": "TIMEOUT",
-                "value": "30",
+                "value": "120",
                 "type": "num"
             },
             {
-                "name": "NIGHT_BRIGHTNESS",
-                "value": "170",
+                "name": "NIGHT_TIMEOUT",
+                "value": "120",
                 "type": "num"
             },
             {
@@ -9205,8 +9186,8 @@
                 "type": "str"
             },
             {
-                "name": "NIGHT_TIMEOUT",
-                "value": "30",
+                "name": "NIGHT_BRIGHTNESS",
+                "value": "170",
                 "type": "num"
             }
         ],
