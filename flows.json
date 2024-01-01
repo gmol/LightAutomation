@@ -840,6 +840,27 @@
         "h": 162
     },
     {
+        "id": "d4893bf570327190",
+        "type": "group",
+        "z": "4769076e30583f2e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f138b1462c1acee7"
+        ],
+        "x": 214,
+        "y": 659,
+        "w": 192,
+        "h": 82
+    },
+    {
         "id": "c8bf62168f8a7f4a",
         "type": "junction",
         "z": "e4f8b2fae37c27e7",
@@ -4394,7 +4415,6 @@
         "id": "030a8281a7fad7cd",
         "type": "mqtt in",
         "z": "d142db9d1a2f6e7e",
-        "d": true,
         "name": "kid's room PIR/brightness sensor",
         "topic": "zigbee2mqtt/PIR_Aqara_01",
         "qos": "0",
@@ -4721,6 +4741,7 @@
         "id": "9ec5c4ea6b18ea9a",
         "type": "mqtt in",
         "z": "d142db9d1a2f6e7e",
+        "d": true,
         "name": "Ikea's massive PIR",
         "topic": "zigbee2mqtt/0x8c6fb9fffe1ae9f4",
         "qos": "2",
@@ -4771,7 +4792,6 @@
         "id": "a3cbf499c562e1ea",
         "type": "mqtt in",
         "z": "d142db9d1a2f6e7e",
-        "d": true,
         "name": "kid's room PIR/brightness sensor",
         "topic": "zigbee2mqtt/PIR_Aqara_01",
         "qos": "0",
@@ -4942,6 +4962,7 @@
         "id": "b4f096378b4f0a7d",
         "type": "mqtt in",
         "z": "d142db9d1a2f6e7e",
+        "d": true,
         "name": "Ikea's massive PIR",
         "topic": "zigbee2mqtt/0x8c6fb9fffe1ae9f4",
         "qos": "2",
@@ -5008,12 +5029,12 @@
             },
             {
                 "name": "NIGHT_TIME",
-                "value": "22:00",
+                "value": "23:30",
                 "type": "str"
             },
             {
                 "name": "NIGHT_BRIGHTNESS",
-                "value": "50",
+                "value": "254",
                 "type": "num"
             }
         ],
@@ -5478,6 +5499,7 @@
         ],
         "seg1": "",
         "seg2": "",
+        "diff": false,
         "className": "",
         "x": 1070,
         "y": 180,
@@ -8676,6 +8698,7 @@
         "id": "f138b1462c1acee7",
         "type": "ui_button",
         "z": "4769076e30583f2e",
+        "g": "d4893bf570327190",
         "name": "",
         "group": "3b825d13cf529239",
         "order": 1,
