@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "664cfdb292f6fb19",
+        "type": "tab",
+        "label": "Ground Floot toilet",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "03d0df180b773622",
         "type": "tab",
         "label": "1st Floor Lights v4",
@@ -761,9 +769,7 @@
             "761752eb212b75d2"
         ],
         "x": 914,
-        "y": 99,
-        "w": 592,
-        "h": 162
+        "y": 99
     },
     {
         "id": "fca75dc07f548313",
@@ -784,9 +790,7 @@
             "9900b250ebaa9e8f"
         ],
         "x": 774,
-        "y": 139,
-        "w": 592,
-        "h": 162
+        "y": 139
     },
     {
         "id": "d4893bf570327190",
@@ -804,10 +808,8 @@
         "nodes": [
             "f138b1462c1acee7"
         ],
-        "x": 214,
-        "y": 739,
-        "w": 192,
-        "h": 82
+        "x": 234,
+        "y": 699
     },
     {
         "id": "f235e3101b914651",
@@ -831,9 +833,7 @@
             "8e553844d75bc48e"
         ],
         "x": 1654,
-        "y": 119,
-        "w": 752,
-        "h": 222
+        "y": 119
     },
     {
         "id": "e9ba40bfd77b00e1",
@@ -853,9 +853,7 @@
             "386df9f4c5a2e54c"
         ],
         "x": 1494,
-        "y": 579,
-        "w": 232,
-        "h": 122
+        "y": 579
     },
     {
         "id": "32bbab8be303dccb",
@@ -876,9 +874,7 @@
             "e28638793216f8fb"
         ],
         "x": 1474,
-        "y": 759,
-        "w": 292,
-        "h": 162
+        "y": 759
     },
     {
         "id": "c8bf62168f8a7f4a",
@@ -941,7 +937,8 @@
         "wires": [
             [
                 "ef82c30366ac6757",
-                "5017bbee1a509f44"
+                "5017bbee1a509f44",
+                "ed703bd7fe199be0"
             ]
         ]
     },
@@ -2878,7 +2875,7 @@
         "z": "78ddf6bd666829fb",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 10,
+        "order": 7,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -3107,6 +3104,233 @@
         ]
     },
     {
+        "id": "7fa46b9a25953a02",
+        "type": "mqtt out",
+        "z": "664cfdb292f6fb19",
+        "name": "ground floor toilet bulb",
+        "topic": "zigbee2mqtt/0xd87a3bfffe00499f/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 620,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ec64b34cc1f0ed40",
+        "type": "mqtt in",
+        "z": "664cfdb292f6fb19",
+        "name": "Ikea's massive PIR",
+        "topic": "zigbee2mqtt/0x8c6fb9fffe1ae9f4",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "e895248ec2623b42"
+            ]
+        ]
+    },
+    {
+        "id": "e895248ec2623b42",
+        "type": "subflow:a018ed82cc7a7b43",
+        "z": "664cfdb292f6fb19",
+        "name": "",
+        "env": [
+            {
+                "name": "TIMEOUT",
+                "value": "600",
+                "type": "num"
+            },
+            {
+                "name": "NIGHT_TIMEOUT",
+                "value": "600",
+                "type": "num"
+            },
+            {
+                "name": "DARKNESS_THRESHOLD",
+                "value": "1000",
+                "type": "num"
+            }
+        ],
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "7fa46b9a25953a02",
+                "cd5453e637f0a969"
+            ],
+            [
+                "25b3ffc3d537647a"
+            ]
+        ]
+    },
+    {
+        "id": "cd5453e637f0a969",
+        "type": "switch",
+        "z": "664cfdb292f6fb19",
+        "name": "",
+        "property": "payload.state",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 550,
+        "y": 160,
+        "wires": [
+            [
+                "4220f94618b862ba"
+            ],
+            [
+                "01dcedac8c3a0280"
+            ]
+        ]
+    },
+    {
+        "id": "4220f94618b862ba",
+        "type": "change",
+        "z": "664cfdb292f6fb19",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Toilet Light is ON",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "600",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 140,
+        "wires": [
+            [
+                "57b76c83a62b9228"
+            ]
+        ]
+    },
+    {
+        "id": "01dcedac8c3a0280",
+        "type": "change",
+        "z": "664cfdb292f6fb19",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Toilet Light is OFF",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [
+                "57b76c83a62b9228"
+            ]
+        ]
+    },
+    {
+        "id": "25b3ffc3d537647a",
+        "type": "change",
+        "z": "664cfdb292f6fb19",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Toilet Light is ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "57b76c83a62b9228"
+            ]
+        ]
+    },
+    {
+        "id": "57b76c83a62b9228",
+        "type": "ui_gauge",
+        "z": "664cfdb292f6fb19",
+        "name": "",
+        "group": "3b825d13cf529239",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "{{msg.topic}}",
+        "label": "Seconds",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "600",
+        "colors": [
+            "#fff700",
+            "#fef602",
+            "#fff700"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1050,
+        "y": 180,
+        "wires": []
+    },
+    {
         "id": "66075c4940158c4b",
         "type": "inject",
         "z": "03d0df180b773622",
@@ -3162,7 +3386,7 @@
         "z": "03d0df180b773622",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -3538,7 +3762,7 @@
         "z": "d142db9d1a2f6e7e",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 5,
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -3565,7 +3789,7 @@
         "z": "d142db9d1a2f6e7e",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 9,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -3599,7 +3823,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 450,
+        "x": 410,
         "y": 380,
         "wires": [
             [
@@ -4098,35 +4322,12 @@
         ]
     },
     {
-        "id": "9ec5c4ea6b18ea9a",
-        "type": "mqtt in",
-        "z": "d142db9d1a2f6e7e",
-        "d": true,
-        "name": "Ikea's massive PIR",
-        "topic": "zigbee2mqtt/0x8c6fb9fffe1ae9f4",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 150,
-        "y": 220,
-        "wires": [
-            [
-                "78aa3ea68af623ae",
-                "ebc98cf72fd8d834"
-            ]
-        ]
-    },
-    {
         "id": "03211bed61ae69ca",
         "type": "ui_gauge",
         "z": "d142db9d1a2f6e7e",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 9,
+        "order": 6,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -4327,28 +4528,6 @@
         ]
     },
     {
-        "id": "b4f096378b4f0a7d",
-        "type": "mqtt in",
-        "z": "d142db9d1a2f6e7e",
-        "d": true,
-        "name": "Ikea's massive PIR",
-        "topic": "zigbee2mqtt/0x8c6fb9fffe1ae9f4",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 130,
-        "y": 860,
-        "wires": [
-            [
-                "2cc0033e25541d0a"
-            ]
-        ]
-    },
-    {
         "id": "ef82c30366ac6757",
         "type": "mqtt out",
         "z": "d142db9d1a2f6e7e",
@@ -4362,8 +4541,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1170,
-        "y": 620,
+        "x": 1230,
+        "y": 640,
         "wires": []
     },
     {
@@ -4380,8 +4559,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1170,
-        "y": 660,
+        "x": 1230,
+        "y": 680,
         "wires": []
     },
     {
@@ -4476,7 +4655,7 @@
             },
             {
                 "name": "NIGHT_BRIGHTNESS",
-                "value": "10",
+                "value": "0",
                 "type": "num"
             }
         ],
@@ -4534,12 +4713,112 @@
         ]
     },
     {
+        "id": "a55998486eda8267",
+        "type": "e-mail",
+        "z": "d142db9d1a2f6e7e",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "",
+        "secure": true,
+        "tls": true,
+        "name": "x5ht7lb6@duck.com",
+        "dname": "",
+        "x": 1820,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2e518bd1d3541040",
+        "type": "change",
+        "z": "d142db9d1a2f6e7e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Night lamp after 23:00",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 540,
+        "wires": [
+            [
+                "a55998486eda8267"
+            ]
+        ]
+    },
+    {
+        "id": "ed703bd7fe199be0",
+        "type": "time-range-switch",
+        "z": "d142db9d1a2f6e7e",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "startTime": "23:00",
+        "endTime": "06:00",
+        "startOffset": 0,
+        "endOffset": 0,
+        "x": 1270,
+        "y": 560,
+        "wires": [
+            [
+                "2e518bd1d3541040"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "eccd13a8716c7919",
+        "type": "inject",
+        "z": "d142db9d1a2f6e7e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1380,
+        "y": 480,
+        "wires": [
+            [
+                "2e518bd1d3541040"
+            ]
+        ]
+    },
+    {
         "id": "0159e193b35dc93d",
         "type": "ui_gauge",
         "z": "f0ef22c0b696182f",
         "name": "",
         "group": "3b825d13cf529239",
-        "order": 8,
+        "order": 4,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -6345,6 +6624,7 @@
         "id": "56b41d414e8f0704",
         "type": "change",
         "z": "4769076e30583f2e",
+        "d": true,
         "name": "long: off",
         "rules": [
             {
@@ -6360,8 +6640,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
-        "y": 620,
+        "x": 580,
+        "y": 280,
         "wires": [
             []
         ]
@@ -6435,14 +6715,15 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 910,
-        "y": 800,
+        "x": 950,
+        "y": 780,
         "wires": []
     },
     {
         "id": "bf0f48150a0f84ce",
         "type": "change",
         "z": "4769076e30583f2e",
+        "d": true,
         "name": "long: off switch",
         "rules": [
             {
@@ -6458,8 +6739,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 580,
+        "x": 600,
+        "y": 240,
         "wires": [
             []
         ]
@@ -6484,7 +6765,7 @@
         "to": "",
         "reg": false,
         "x": 620,
-        "y": 452,
+        "y": 420,
         "wires": [
             [
                 "a42694da92fb5aab",
@@ -6496,6 +6777,7 @@
         "id": "78cb806cb93dd956",
         "type": "change",
         "z": "4769076e30583f2e",
+        "d": true,
         "name": "double: toggle",
         "rules": [
             {
@@ -6512,7 +6794,7 @@
         "to": "",
         "reg": false,
         "x": 600,
-        "y": 400,
+        "y": 160,
         "wires": [
             []
         ]
@@ -6536,8 +6818,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 340,
+        "x": 650,
+        "y": 360,
         "wires": [
             [
                 "5980ee6d6eed6db8"
@@ -6601,8 +6883,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 540,
+        "x": 650,
+        "y": 480,
         "wires": [
             [
                 "1f6185e980a0d76e",
@@ -6614,6 +6896,7 @@
         "id": "71e19d5b3f58ba9c",
         "type": "change",
         "z": "4769076e30583f2e",
+        "d": true,
         "name": "long: toggle switch",
         "rules": [
             {
@@ -6629,8 +6912,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
-        "y": 500,
+        "x": 610,
+        "y": 200,
         "wires": [
             []
         ]
@@ -6725,8 +7008,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 310,
-        "y": 780,
+        "x": 330,
+        "y": 740,
         "wires": [
             [
                 "d3cc833bae983bb2",
@@ -6753,8 +7036,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 800,
+        "x": 640,
+        "y": 780,
         "wires": [
             [
                 "b6c56d0b09e7d20b"
@@ -6780,8 +7063,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 720,
+        "x": 640,
+        "y": 700,
         "wires": [
             [
                 "2d81aae9b57cc553",
@@ -7174,6 +7457,7 @@
         "id": "29d8b5f36082c1f6",
         "type": "subflow:47ad76887e14580c",
         "z": "7ea9894b62d00340",
+        "d": true,
         "name": "",
         "env": [
             {
@@ -7862,6 +8146,7 @@
         "id": "6aed6053762bb7e3",
         "type": "mqtt in",
         "z": "7ea9894b62d00340",
+        "d": true,
         "name": "kid's room PIR/brightness sensor",
         "topic": "zigbee2mqtt/PIR_Aqara_01",
         "qos": "0",
@@ -8216,6 +8501,9 @@
         "d": true,
         "server": "smtp.gmail.com",
         "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "",
         "secure": true,
         "tls": true,
         "name": "x5ht7lb6@duck.com",
@@ -9476,7 +9764,7 @@
         "id": "e51a81a8b1377ca9",
         "type": "function",
         "z": "d3cb7b4c3eeb0829",
-        "name": "toggle night light",
+        "name": "toggle night lamp",
         "func": "const nightLight = flow.get('is-night-light-on');\nnode.warn(\"matyldaNightLight:\" + nightLight);\nflow.set('is-night-light-on', !nightLight );\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -9658,7 +9946,7 @@
         "id": "7b882ec211deb507",
         "type": "function",
         "z": "d3cb7b4c3eeb0829",
-        "name": "toggle night light",
+        "name": "toggle night lamp",
         "func": "const nightLight = flow.get('is-night-light-on');\nnode.warn(\"matyldaNightLight:\" + nightLight);\nflow.set('is-night-light-on', !nightLight );\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
