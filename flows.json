@@ -112,6 +112,14 @@
         "env": []
     },
     {
+        "id": "e1d1a89ca219f891",
+        "type": "tab",
+        "label": "email",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "47ad76887e14580c",
         "type": "subflow",
         "name": "PIR Subflow [DEPRECATED]",
@@ -459,8 +467,8 @@
         "category": "",
         "in": [
             {
-                "x": 40,
-                "y": 120,
+                "x": 100,
+                "y": 210,
                 "wires": [
                     {
                         "id": "54b284972a2d56a9"
@@ -473,8 +481,8 @@
         ],
         "out": [
             {
-                "x": 1206,
-                "y": 109,
+                "x": 1266,
+                "y": 199,
                 "wires": [
                     {
                         "id": "e360c8e62748dd4a",
@@ -751,27 +759,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "64b9e597ca308567",
-        "type": "group",
-        "z": "4769076e30583f2e",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "1f6185e980a0d76e",
-            "8a638e9042079b6f",
-            "761752eb212b75d2"
-        ],
-        "x": 914,
-        "y": 99
-    },
-    {
         "id": "fca75dc07f548313",
         "type": "group",
         "z": "d3cb7b4c3eeb0829",
@@ -789,8 +776,10 @@
             "e637e198f776c1aa",
             "9900b250ebaa9e8f"
         ],
-        "x": 774,
-        "y": 139
+        "x": 1054,
+        "y": -1,
+        "w": 592,
+        "h": 162
     },
     {
         "id": "d4893bf570327190",
@@ -809,31 +798,9 @@
             "f138b1462c1acee7"
         ],
         "x": 234,
-        "y": 699
-    },
-    {
-        "id": "f235e3101b914651",
-        "type": "group",
-        "z": "4769076e30583f2e",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "129f4721fc14c7de",
-            "91e2392643690da0",
-            "a88c2df1410bc2df",
-            "24d46a544d732ce8",
-            "a6932210b2c105f7",
-            "8e553844d75bc48e"
-        ],
-        "x": 1654,
-        "y": 119
+        "y": 699,
+        "w": 192,
+        "h": 82
     },
     {
         "id": "e9ba40bfd77b00e1",
@@ -853,7 +820,9 @@
             "386df9f4c5a2e54c"
         ],
         "x": 1494,
-        "y": 579
+        "y": 579,
+        "w": 232,
+        "h": 122
     },
     {
         "id": "32bbab8be303dccb",
@@ -874,7 +843,92 @@
             "e28638793216f8fb"
         ],
         "x": 1474,
-        "y": 759
+        "y": 759,
+        "w": 292,
+        "h": 162
+    },
+    {
+        "id": "c2d101270eadc0a9",
+        "type": "group",
+        "z": "4769076e30583f2e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "761752eb212b75d2",
+            "1f6185e980a0d76e",
+            "8a638e9042079b6f",
+            "ea9777597532c535",
+            "8727562120210564",
+            "026f638ab9e43eb4",
+            "fa798ab4123c8d2e"
+        ],
+        "x": 894,
+        "y": 179,
+        "w": 1312,
+        "h": 149
+    },
+    {
+        "id": "debd415d57282fa2",
+        "type": "group",
+        "z": "d3cb7b4c3eeb0829",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c5a8de285ab32944",
+            "139d17e194a48269",
+            "d9527410ce0d55db",
+            "eff31c7b0ddf6aef",
+            "54b3aebbb32ecaa1",
+            "cb34ebee4159288e",
+            "96fbbef0e7f3ca2d"
+        ],
+        "x": 774,
+        "y": 179,
+        "w": 1312,
+        "h": 149
+    },
+    {
+        "id": "8080322e48b0bea9",
+        "type": "group",
+        "z": "4769076e30583f2e",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "129f4721fc14c7de",
+            "91e2392643690da0",
+            "a88c2df1410bc2df",
+            "24d46a544d732ce8",
+            "a6932210b2c105f7",
+            "8e553844d75bc48e",
+            "ef693773fbcf5e45",
+            "2af3980a4bb1291d",
+            "952ff5eefeae7247"
+        ],
+        "x": 2314,
+        "y": 99,
+        "w": 772,
+        "h": 302
     },
     {
         "id": "c8bf62168f8a7f4a",
@@ -919,6 +973,7 @@
         "id": "70b9ec611c40abe8",
         "type": "junction",
         "z": "4769076e30583f2e",
+        "d": true,
         "x": 1440,
         "y": 640,
         "wires": [
@@ -932,13 +987,12 @@
         "id": "f48a82a95e9d46a2",
         "type": "junction",
         "z": "d142db9d1a2f6e7e",
-        "x": 1000,
-        "y": 640,
+        "x": 940,
+        "y": 660,
         "wires": [
             [
-                "ef82c30366ac6757",
                 "5017bbee1a509f44",
-                "ed703bd7fe199be0"
+                "ef82c30366ac6757"
             ]
         ]
     },
@@ -977,18 +1031,9 @@
         "y": 280,
         "wires": [
             [
-                "d2be1a282b5f3aad"
+                "d2be1a282b5f3aad",
+                "139d17e194a48269"
             ]
-        ]
-    },
-    {
-        "id": "3d09e5ac8e81a68e",
-        "type": "junction",
-        "z": "d3cb7b4c3eeb0829",
-        "x": 1060,
-        "y": 180,
-        "wires": [
-            []
         ]
     },
     {
@@ -999,8 +1044,8 @@
         "y": 560,
         "wires": [
             [
-                "c9c5d037593c0bf2",
-                "158b6ea279acd5bb"
+                "158b6ea279acd5bb",
+                "c9c5d037593c0bf2"
             ]
         ]
     },
@@ -1062,6 +1107,18 @@
         "wires": [
             [
                 "7b882ec211deb507"
+            ]
+        ]
+    },
+    {
+        "id": "8cf887535c5f8d33",
+        "type": "junction",
+        "z": "f0ef22c0b696182f",
+        "x": 960,
+        "y": 80,
+        "wires": [
+            [
+                "a70a94eea0c32b72"
             ]
         ]
     },
@@ -1846,7 +1903,7 @@
         "topic": "",
         "payloadTimerStart": "",
         "payloadTimerStartType": "nul",
-        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":5}",
+        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":1}",
         "payloadTimerStopType": "json",
         "timer": "${TIMEOUT}",
         "resetWhileRunning": true,
@@ -2107,8 +2164,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
-        "y": 110,
+        "x": 720,
+        "y": 200,
         "wires": [
             [
                 "b88939eb1478ef68"
@@ -2134,8 +2191,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 983,
-        "y": 207,
+        "x": 1043,
+        "y": 297,
         "wires": [
             [
                 "b88939eb1478ef68"
@@ -2153,8 +2210,8 @@
         "endTime": "${DAY_TIME}",
         "startOffset": 0,
         "endOffset": 0,
-        "x": 250,
-        "y": 120,
+        "x": 310,
+        "y": 210,
         "wires": [
             [
                 "e360c8e62748dd4a",
@@ -2178,8 +2235,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1240,
-        "y": 40,
+        "x": 1300,
+        "y": 130,
         "wires": []
     },
     {
@@ -2202,8 +2259,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 766,
-        "y": 160,
+        "x": 826,
+        "y": 250,
         "wires": [
             [
                 "fa0d289c7b8f427a",
@@ -2226,8 +2283,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 40,
+        "x": 920,
+        "y": 130,
         "wires": []
     },
     {
@@ -2242,8 +2299,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 20,
+        "x": 720,
+        "y": 110,
         "wires": []
     },
     {
@@ -2259,8 +2316,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1030,
-        "y": 160,
+        "x": 1090,
+        "y": 250,
         "wires": []
     },
     {
@@ -2276,8 +2333,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 280,
+        "x": 1030,
+        "y": 370,
         "wires": []
     },
     {
@@ -2300,8 +2357,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 548,
-        "y": 199,
+        "x": 608,
+        "y": 289,
         "wires": [
             [
                 "530e5584d9bced3f"
@@ -2330,8 +2387,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 220,
+        "x": 240,
+        "y": 310,
         "wires": [
             [
                 "1b5424f5b1192867"
@@ -2351,8 +2408,18 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
-        "y": 280,
+        "x": 550,
+        "y": 370,
+        "wires": []
+    },
+    {
+        "id": "20859819165292e7",
+        "type": "comment",
+        "z": "cb7cf013bfa17c66",
+        "name": "🚧 Under Construction 🚧",
+        "info": "",
+        "x": 350,
+        "y": 60,
         "wires": []
     },
     {
@@ -2440,7 +2507,7 @@
         "topic": "",
         "payloadTimerStart": "",
         "payloadTimerStartType": "nul",
-        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":5}",
+        "payloadTimerStop": "{\"state\":\"OFF\",\"transition\":1}",
         "payloadTimerStopType": "json",
         "timer": "${TIMEOUT}",
         "resetWhileRunning": true,
@@ -3161,6 +3228,11 @@
             {
                 "name": "DARKNESS_THRESHOLD",
                 "value": "1000",
+                "type": "num"
+            },
+            {
+                "name": "NIGHT_BRIGHTNESS",
+                "value": "200",
                 "type": "num"
             }
         ],
@@ -4293,35 +4365,6 @@
         ]
     },
     {
-        "id": "69274076e750cf7c",
-        "type": "change",
-        "z": "d142db9d1a2f6e7e",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "TOGGLE",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 740,
-        "y": 320,
-        "wires": [
-            [
-                "728d9d16c0204722",
-                "a041fafb4183944b"
-            ]
-        ]
-    },
-    {
         "id": "03211bed61ae69ca",
         "type": "ui_gauge",
         "z": "d142db9d1a2f6e7e",
@@ -4366,7 +4409,6 @@
         "y": 767,
         "wires": [
             [
-                "2cc0033e25541d0a",
                 "056d3c7d67412a92",
                 "17fe57da8d0c5145"
             ]
@@ -4499,35 +4541,6 @@
         ]
     },
     {
-        "id": "2cc0033e25541d0a",
-        "type": "switch",
-        "z": "d142db9d1a2f6e7e",
-        "d": true,
-        "name": "is PIR disabled",
-        "property": "disable_PIR_kids_room",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 440,
-        "y": 767,
-        "wires": [
-            [],
-            [
-                "3b8bc7e2dc17fc19",
-                "913dd9d481a60a0b"
-            ]
-        ]
-    },
-    {
         "id": "ef82c30366ac6757",
         "type": "mqtt out",
         "z": "d142db9d1a2f6e7e",
@@ -4541,8 +4554,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1230,
-        "y": 640,
+        "x": 1130,
+        "y": 620,
         "wires": []
     },
     {
@@ -4559,7 +4572,7 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1230,
+        "x": 1130,
         "y": 680,
         "wires": []
     },
@@ -4567,7 +4580,6 @@
         "id": "913dd9d481a60a0b",
         "type": "subflow:a018ed82cc7a7b43",
         "z": "d142db9d1a2f6e7e",
-        "d": true,
         "name": "",
         "env": [
             {
@@ -4577,12 +4589,17 @@
             },
             {
                 "name": "NIGHT_TIME",
-                "value": "23:30",
+                "value": "22:00",
+                "type": "str"
+            },
+            {
+                "name": "DAY_TIME",
+                "value": "07:00",
                 "type": "str"
             },
             {
                 "name": "NIGHT_BRIGHTNESS",
-                "value": "254",
+                "value": "0",
                 "type": "num"
             }
         ],
@@ -4591,8 +4608,8 @@
         "wires": [
             [
                 "2307b9f0b1da6945",
-                "f48a82a95e9d46a2",
-                "e549aba02d7efe29"
+                "e549aba02d7efe29",
+                "f48a82a95e9d46a2"
             ],
             [
                 "415b539a9d4cb7c5",
@@ -4633,47 +4650,6 @@
         "wires": []
     },
     {
-        "id": "3b8bc7e2dc17fc19",
-        "type": "subflow:ce92b488da80a9bb",
-        "z": "d142db9d1a2f6e7e",
-        "name": "",
-        "env": [
-            {
-                "name": "TIMEOUT",
-                "value": "1200",
-                "type": "num"
-            },
-            {
-                "name": "NIGHT_TIME",
-                "value": "22:00",
-                "type": "str"
-            },
-            {
-                "name": "DAY_TIME",
-                "value": "07:00",
-                "type": "str"
-            },
-            {
-                "name": "NIGHT_BRIGHTNESS",
-                "value": "0",
-                "type": "num"
-            }
-        ],
-        "x": 630,
-        "y": 700,
-        "wires": [
-            [
-                "2307b9f0b1da6945",
-                "f48a82a95e9d46a2",
-                "e549aba02d7efe29"
-            ],
-            [
-                "415b539a9d4cb7c5",
-                "8b48520d7e5fa332"
-            ]
-        ]
-    },
-    {
         "id": "056d3c7d67412a92",
         "type": "debug",
         "z": "d142db9d1a2f6e7e",
@@ -4705,110 +4681,10 @@
         "repair": false,
         "outputs": 1,
         "x": 440,
-        "y": 820,
+        "y": 768,
         "wires": [
             [
-                "3b8bc7e2dc17fc19"
-            ]
-        ]
-    },
-    {
-        "id": "a55998486eda8267",
-        "type": "e-mail",
-        "z": "d142db9d1a2f6e7e",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "authtype": "BASIC",
-        "saslformat": false,
-        "token": "",
-        "secure": true,
-        "tls": true,
-        "name": "x5ht7lb6@duck.com",
-        "dname": "",
-        "x": 1820,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "2e518bd1d3541040",
-        "type": "change",
-        "z": "d142db9d1a2f6e7e",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "Night lamp after 23:00",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1560,
-        "y": 540,
-        "wires": [
-            [
-                "a55998486eda8267"
-            ]
-        ]
-    },
-    {
-        "id": "ed703bd7fe199be0",
-        "type": "time-range-switch",
-        "z": "d142db9d1a2f6e7e",
-        "name": "",
-        "lat": "",
-        "lon": "",
-        "startTime": "23:00",
-        "endTime": "06:00",
-        "startOffset": 0,
-        "endOffset": 0,
-        "x": 1270,
-        "y": 560,
-        "wires": [
-            [
-                "2e518bd1d3541040"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "eccd13a8716c7919",
-        "type": "inject",
-        "z": "d142db9d1a2f6e7e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1380,
-        "y": 480,
-        "wires": [
-            [
-                "2e518bd1d3541040"
+                "913dd9d481a60a0b"
             ]
         ]
     },
@@ -4836,8 +4712,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 1070,
-        "y": 180,
+        "x": 1110,
+        "y": 380,
         "wires": []
     },
     {
@@ -4854,8 +4730,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1150,
-        "y": 80,
+        "x": 1190,
+        "y": 280,
         "wires": []
     },
     {
@@ -4871,8 +4747,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 120,
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "d74caf78c62e4f1e"
@@ -4896,8 +4772,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 120,
-        "y": 200,
+        "x": 160,
+        "y": 400,
         "wires": [
             [
                 "d74caf78c62e4f1e"
@@ -4921,8 +4797,8 @@
         "topic": "",
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
-        "x": 120,
-        "y": 280,
+        "x": 160,
+        "y": 480,
         "wires": [
             [
                 "d74caf78c62e4f1e"
@@ -4955,8 +4831,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 160,
+        "x": 860,
+        "y": 360,
         "wires": [
             [
                 "0159e193b35dc93d"
@@ -4975,8 +4851,8 @@
                 "type": "num"
             }
         ],
-        "x": 370,
-        "y": 120,
+        "x": 410,
+        "y": 320,
         "wires": [
             [
                 "a8a8f90daa726fa3",
@@ -5006,8 +4882,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 280,
+        "x": 860,
+        "y": 480,
         "wires": [
             [
                 "0159e193b35dc93d"
@@ -5034,8 +4910,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 570,
-        "y": 100,
+        "x": 610,
+        "y": 300,
         "wires": [
             [
                 "13a1c2d145877346",
@@ -5073,8 +4949,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 820,
-        "y": 220,
+        "x": 860,
+        "y": 420,
         "wires": [
             [
                 "0159e193b35dc93d"
@@ -5100,8 +4976,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 790,
-        "y": 60,
+        "x": 830,
+        "y": 260,
         "wires": [
             [
                 "a70a94eea0c32b72"
@@ -5127,8 +5003,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 790,
-        "y": 100,
+        "x": 830,
+        "y": 300,
         "wires": [
             [
                 "a70a94eea0c32b72"
@@ -5152,11 +5028,11 @@
         "topic": "",
         "payload": "ON",
         "payloadType": "str",
-        "x": 370,
-        "y": 380,
+        "x": 810,
+        "y": 40,
         "wires": [
             [
-                "a70a94eea0c32b72"
+                "8cf887535c5f8d33"
             ]
         ]
     },
@@ -5177,11 +5053,11 @@
         "topic": "",
         "payload": "OFF",
         "payloadType": "str",
-        "x": 370,
-        "y": 420,
+        "x": 810,
+        "y": 80,
         "wires": [
             [
-                "a70a94eea0c32b72"
+                "8cf887535c5f8d33"
             ]
         ]
     },
@@ -5202,11 +5078,11 @@
         "topic": "",
         "payload": "TOGGLE",
         "payloadType": "str",
-        "x": 380,
-        "y": 460,
+        "x": 820,
+        "y": 120,
         "wires": [
             [
-                "a70a94eea0c32b72"
+                "8cf887535c5f8d33"
             ]
         ]
     },
@@ -5224,8 +5100,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 830,
-        "y": 440,
+        "x": 730,
+        "y": 200,
         "wires": []
     },
     {
@@ -6922,7 +6798,7 @@
         "id": "1f6185e980a0d76e",
         "type": "countdown",
         "z": "4769076e30583f2e",
-        "g": "64b9e597ca308567",
+        "g": "c2d101270eadc0a9",
         "name": "",
         "topic": "",
         "payloadTimerStart": "true",
@@ -6934,8 +6810,8 @@
         "outputOnReset": true,
         "setTimeToNewWhileRunning": true,
         "startCountdownOnControlMessage": true,
-        "x": 1030,
-        "y": 220,
+        "x": 1010,
+        "y": 287,
         "wires": [
             [
                 "8a638e9042079b6f"
@@ -6947,18 +6823,20 @@
         "id": "8a638e9042079b6f",
         "type": "function",
         "z": "4769076e30583f2e",
-        "g": "64b9e597ca308567",
-        "name": "disable disable_PIR_kids_room for 300 min",
+        "g": "c2d101270eadc0a9",
+        "name": "disable kids' room PIR for 300 min",
         "func": "// node.error(`msg payload[${msg.payload}]`);\n// const payloadValue = (msg.payload === true);\n// global.set('disable_PIR_Aqara_01', msg.payload);\nglobal.set('disable_PIR_kids_room', msg.payload);\nnode.error('disable_PIR_kids_room [' + global.get('disable_PIR_kids_room') + ']');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1310,
-        "y": 200,
+        "x": 1260,
+        "y": 280,
         "wires": [
-            []
+            [
+                "ea9777597532c535"
+            ]
         ],
         "info": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually"
     },
@@ -7077,11 +6955,11 @@
         "id": "761752eb212b75d2",
         "type": "comment",
         "z": "4769076e30583f2e",
-        "g": "64b9e597ca308567",
+        "g": "c2d101270eadc0a9",
         "name": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually",
         "info": "",
-        "x": 1200,
-        "y": 140,
+        "x": 1180,
+        "y": 220,
         "wires": []
     },
     {
@@ -7126,7 +7004,7 @@
         "id": "129f4721fc14c7de",
         "type": "mqtt out",
         "z": "4769076e30583f2e",
-        "g": "f235e3101b914651",
+        "g": "8080322e48b0bea9",
         "name": "",
         "topic": "zigbee2mqtt/Bulb_Ikea_02/get",
         "qos": "",
@@ -7137,8 +7015,8 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 2230,
-        "y": 220,
+        "x": 2890,
+        "y": 200,
         "wires": []
     },
     {
@@ -7146,7 +7024,7 @@
         "type": "mqtt in",
         "z": "4769076e30583f2e",
         "d": true,
-        "g": "f235e3101b914651",
+        "g": "8080322e48b0bea9",
         "name": "",
         "topic": "zigbee2mqtt/Bulb_Ikea_02",
         "qos": "2",
@@ -7156,8 +7034,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1790,
-        "y": 300,
+        "x": 2450,
+        "y": 280,
         "wires": [
             [
                 "a6932210b2c105f7"
@@ -7168,7 +7046,7 @@
         "id": "a88c2df1410bc2df",
         "type": "inject",
         "z": "4769076e30583f2e",
-        "g": "f235e3101b914651",
+        "g": "8080322e48b0bea9",
         "name": "",
         "props": [
             {
@@ -7186,8 +7064,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1760,
-        "y": 220,
+        "x": 2420,
+        "y": 200,
         "wires": [
             [
                 "24d46a544d732ce8"
@@ -7198,7 +7076,7 @@
         "id": "24d46a544d732ce8",
         "type": "change",
         "z": "4769076e30583f2e",
-        "g": "f235e3101b914651",
+        "g": "8080322e48b0bea9",
         "name": "",
         "rules": [
             {
@@ -7214,8 +7092,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1960,
-        "y": 220,
+        "x": 2620,
+        "y": 200,
         "wires": [
             [
                 "129f4721fc14c7de"
@@ -7226,7 +7104,7 @@
         "id": "a6932210b2c105f7",
         "type": "debug",
         "z": "4769076e30583f2e",
-        "g": "f235e3101b914651",
+        "g": "8080322e48b0bea9",
         "name": "debug 96",
         "active": true,
         "tosidebar": true,
@@ -7235,8 +7113,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2300,
-        "y": 300,
+        "x": 2960,
+        "y": 280,
         "wires": []
     },
     {
@@ -7278,7 +7156,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1020,
+        "x": 1000,
         "y": 60,
         "wires": [
             [
@@ -7290,11 +7168,11 @@
         "id": "8e553844d75bc48e",
         "type": "comment",
         "z": "4769076e30583f2e",
-        "g": "f235e3101b914651",
+        "g": "8080322e48b0bea9",
         "name": "Check bulb state",
         "info": "",
-        "x": 1760,
-        "y": 160,
+        "x": 2420,
+        "y": 140,
         "wires": []
     },
     {
@@ -7433,6 +7311,178 @@
             [
                 "a42694da92fb5aab",
                 "1f6185e980a0d76e"
+            ]
+        ]
+    },
+    {
+        "id": "026f638ab9e43eb4",
+        "type": "mqtt out",
+        "z": "4769076e30583f2e",
+        "g": "c2d101270eadc0a9",
+        "name": "",
+        "topic": "zigbee2mqtt/PIR_Aqara_01",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 2060,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ea9777597532c535",
+        "type": "switch",
+        "z": "4769076e30583f2e",
+        "g": "c2d101270eadc0a9",
+        "name": "is timer off?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1590,
+        "y": 280,
+        "wires": [
+            [
+                "8727562120210564"
+            ]
+        ]
+    },
+    {
+        "id": "8727562120210564",
+        "type": "change",
+        "z": "4769076e30583f2e",
+        "g": "c2d101270eadc0a9",
+        "name": "set occupancy false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"occupancy\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1800,
+        "y": 280,
+        "wires": [
+            [
+                "026f638ab9e43eb4"
+            ]
+        ]
+    },
+    {
+        "id": "fa798ab4123c8d2e",
+        "type": "inject",
+        "z": "4769076e30583f2e",
+        "g": "c2d101270eadc0a9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 1550,
+        "y": 220,
+        "wires": [
+            [
+                "ea9777597532c535"
+            ]
+        ]
+    },
+    {
+        "id": "ef693773fbcf5e45",
+        "type": "change",
+        "z": "4769076e30583f2e",
+        "g": "8080322e48b0bea9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "anything to Matylda's light",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2740,
+        "y": 360,
+        "wires": [
+            [
+                "2af3980a4bb1291d"
+            ]
+        ]
+    },
+    {
+        "id": "2af3980a4bb1291d",
+        "type": "e-mail",
+        "z": "4769076e30583f2e",
+        "g": "8080322e48b0bea9",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "",
+        "secure": true,
+        "tls": true,
+        "name": "x5ht7lb6@duck.com",
+        "dname": "",
+        "x": 2960,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "952ff5eefeae7247",
+        "type": "mqtt in",
+        "z": "4769076e30583f2e",
+        "g": "8080322e48b0bea9",
+        "name": "",
+        "topic": "zigbee2mqtt/0x60efabfffe08e191",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2470,
+        "y": 360,
+        "wires": [
+            [
+                "ef693773fbcf5e45"
             ]
         ]
     },
@@ -8495,24 +8545,6 @@
         ]
     },
     {
-        "id": "a338d9883711a43f",
-        "type": "e-mail",
-        "z": "e86e32e3984d7a10",
-        "d": true,
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "authtype": "BASIC",
-        "saslformat": false,
-        "token": "",
-        "secure": true,
-        "tls": true,
-        "name": "x5ht7lb6@duck.com",
-        "dname": "",
-        "x": 880,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "809ced3214fe050a",
         "type": "change",
         "z": "e86e32e3984d7a10",
@@ -8542,7 +8574,7 @@
         "y": 120,
         "wires": [
             [
-                "a338d9883711a43f"
+                "9824984071f02ab7"
             ]
         ]
     },
@@ -8777,6 +8809,20 @@
                 "f7fb07ccdf63870e"
             ]
         ]
+    },
+    {
+        "id": "9824984071f02ab7",
+        "type": "link out",
+        "z": "e86e32e3984d7a10",
+        "d": true,
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "a420d68d10d187b9"
+        ],
+        "x": 835,
+        "y": 120,
+        "wires": []
     },
     {
         "id": "24579bcb.5c9814",
@@ -9380,7 +9426,8 @@
         "wires": [
             [
                 "8c3317c8cafa9131",
-                "d2be1a282b5f3aad"
+                "d2be1a282b5f3aad",
+                "139d17e194a48269"
             ]
         ]
     },
@@ -9581,6 +9628,7 @@
         "id": "d2be1a282b5f3aad",
         "type": "countdown",
         "z": "d3cb7b4c3eeb0829",
+        "d": true,
         "g": "fca75dc07f548313",
         "name": "",
         "topic": "",
@@ -9593,8 +9641,8 @@
         "outputOnReset": true,
         "setTimeToNewWhileRunning": true,
         "startCountdownOnControlMessage": true,
-        "x": 890,
-        "y": 260,
+        "x": 1170,
+        "y": 120,
         "wires": [
             [
                 "e637e198f776c1aa"
@@ -9606,6 +9654,7 @@
         "id": "e637e198f776c1aa",
         "type": "function",
         "z": "d3cb7b4c3eeb0829",
+        "d": true,
         "g": "fca75dc07f548313",
         "name": "disable disable_PIR_kids_room for 300 min",
         "func": "// node.error(`msg payload[${msg.payload}]`);\n// const payloadValue = (msg.payload === true);\n// global.set('disable_PIR_Aqara_01', msg.payload);\nglobal.set('disable_PIR_kids_room', msg.payload);\nnode.error('disable_PIR_kids_room [' + global.get('disable_PIR_kids_room') + ']');\nreturn msg;",
@@ -9614,8 +9663,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
-        "y": 240,
+        "x": 1450,
+        "y": 100,
         "wires": [
             []
         ],
@@ -9625,11 +9674,12 @@
         "id": "9900b250ebaa9e8f",
         "type": "comment",
         "z": "d3cb7b4c3eeb0829",
+        "d": true,
         "g": "fca75dc07f548313",
         "name": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually",
         "info": "",
-        "x": 1060,
-        "y": 180,
+        "x": 1340,
+        "y": 40,
         "wires": []
     },
     {
@@ -9646,7 +9696,7 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1770,
+        "x": 1830,
         "y": 540,
         "wires": []
     },
@@ -9664,7 +9714,7 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1770,
+        "x": 1830,
         "y": 580,
         "wires": []
     },
@@ -10045,6 +10095,160 @@
         ]
     },
     {
+        "id": "c5a8de285ab32944",
+        "type": "comment",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually",
+        "info": "",
+        "x": 1060,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "139d17e194a48269",
+        "type": "countdown",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "",
+        "topic": "",
+        "payloadTimerStart": "true",
+        "payloadTimerStartType": "bool",
+        "payloadTimerStop": "false",
+        "payloadTimerStopType": "bool",
+        "timer": "1800",
+        "resetWhileRunning": true,
+        "outputOnReset": true,
+        "setTimeToNewWhileRunning": true,
+        "startCountdownOnControlMessage": true,
+        "x": 890,
+        "y": 287,
+        "wires": [
+            [
+                "d9527410ce0d55db"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d9527410ce0d55db",
+        "type": "function",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "disable kids' room PIR for 300 min",
+        "func": "// node.error(`msg payload[${msg.payload}]`);\n// const payloadValue = (msg.payload === true);\n// global.set('disable_PIR_Aqara_01', msg.payload);\nglobal.set('disable_PIR_kids_room', msg.payload);\nnode.error('disable_PIR_kids_room [' + global.get('disable_PIR_kids_room') + ']');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 280,
+        "wires": [
+            [
+                "eff31c7b0ddf6aef"
+            ]
+        ],
+        "info": "disable PIR_Aqara_01 for 15 min when ceiling light was toggled manually"
+    },
+    {
+        "id": "eff31c7b0ddf6aef",
+        "type": "switch",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "is timer off?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1470,
+        "y": 280,
+        "wires": [
+            [
+                "54b3aebbb32ecaa1"
+            ]
+        ]
+    },
+    {
+        "id": "54b3aebbb32ecaa1",
+        "type": "change",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "set occupancy false",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"occupancy\":false}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1680,
+        "y": 280,
+        "wires": [
+            [
+                "cb34ebee4159288e"
+            ]
+        ]
+    },
+    {
+        "id": "cb34ebee4159288e",
+        "type": "mqtt out",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "",
+        "topic": "zigbee2mqtt/PIR_Aqara_01",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 1940,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "96fbbef0e7f3ca2d",
+        "type": "inject",
+        "z": "d3cb7b4c3eeb0829",
+        "g": "debd415d57282fa2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 1430,
+        "y": 220,
+        "wires": [
+            [
+                "eff31c7b0ddf6aef"
+            ]
+        ]
+    },
+    {
         "id": "253ec0e0eef2a234",
         "type": "mqtt in",
         "z": "3d6afdc1679dafa8",
@@ -10242,6 +10446,42 @@
         "outputLabels": [
             "click",
             "long press"
+        ]
+    },
+    {
+        "id": "7956500a68144205",
+        "type": "e-mail",
+        "z": "e1d1a89ca219f891",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": false,
+        "token": "",
+        "secure": true,
+        "tls": true,
+        "name": "x5ht7lb6@duck.com",
+        "dname": "",
+        "x": 460,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a420d68d10d187b9",
+        "type": "link in",
+        "z": "e1d1a89ca219f891",
+        "name": "link in: email",
+        "links": [
+            "86be4cfb9107fec9",
+            "e146bcfdb2999789",
+            "5cc9e6c7848b6ee1",
+            "9824984071f02ab7"
+        ],
+        "x": 245,
+        "y": 100,
+        "wires": [
+            [
+                "7956500a68144205"
+            ]
         ]
     }
 ]
