@@ -114,7 +114,7 @@
     {
         "id": "e1d1a89ca219f891",
         "type": "tab",
-        "label": "email",
+        "label": "links",
         "disabled": false,
         "info": "",
         "env": []
@@ -902,35 +902,6 @@
         "h": 149
     },
     {
-        "id": "8080322e48b0bea9",
-        "type": "group",
-        "z": "4769076e30583f2e",
-        "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
-        },
-        "nodes": [
-            "129f4721fc14c7de",
-            "91e2392643690da0",
-            "a88c2df1410bc2df",
-            "24d46a544d732ce8",
-            "a6932210b2c105f7",
-            "8e553844d75bc48e",
-            "ef693773fbcf5e45",
-            "2af3980a4bb1291d",
-            "952ff5eefeae7247"
-        ],
-        "x": 2314,
-        "y": 99,
-        "w": 772,
-        "h": 302
-    },
-    {
         "id": "c8bf62168f8a7f4a",
         "type": "junction",
         "z": "e4f8b2fae37c27e7",
@@ -984,19 +955,6 @@
         ]
     },
     {
-        "id": "f48a82a95e9d46a2",
-        "type": "junction",
-        "z": "d142db9d1a2f6e7e",
-        "x": 940,
-        "y": 660,
-        "wires": [
-            [
-                "5017bbee1a509f44",
-                "ef82c30366ac6757"
-            ]
-        ]
-    },
-    {
         "id": "5354b770315403e7",
         "type": "junction",
         "z": "d142db9d1a2f6e7e",
@@ -1044,8 +1002,7 @@
         "y": 560,
         "wires": [
             [
-                "158b6ea279acd5bb",
-                "c9c5d037593c0bf2"
+                "e19bb5c50abd2b71"
             ]
         ]
     },
@@ -1060,7 +1017,7 @@
                 "87d71a3ab78e072b",
                 "d352a09f318ee7b4",
                 "6b1ca0bf65260abe",
-                "18faf3c38eab58cd"
+                "aed892950f7d26fe"
             ]
         ]
     },
@@ -1119,6 +1076,18 @@
         "wires": [
             [
                 "a70a94eea0c32b72"
+            ]
+        ]
+    },
+    {
+        "id": "aed892950f7d26fe",
+        "type": "junction",
+        "z": "d3cb7b4c3eeb0829",
+        "x": 1180,
+        "y": 480,
+        "wires": [
+            [
+                "e2d0ff1c3e8d07cc"
             ]
         ]
     },
@@ -4541,42 +4510,6 @@
         ]
     },
     {
-        "id": "ef82c30366ac6757",
-        "type": "mqtt out",
-        "z": "d142db9d1a2f6e7e",
-        "name": "Kids Night Light 1",
-        "topic": "zigbee2mqtt/0x60efabfffe08e191/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1130,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "5017bbee1a509f44",
-        "type": "mqtt out",
-        "z": "d142db9d1a2f6e7e",
-        "name": "Kids Night Light 2",
-        "topic": "zigbee2mqtt/0x8c6fb9fffee7cbb4/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1130,
-        "y": 680,
-        "wires": []
-    },
-    {
         "id": "913dd9d481a60a0b",
         "type": "subflow:a018ed82cc7a7b43",
         "z": "d142db9d1a2f6e7e",
@@ -4609,7 +4542,7 @@
             [
                 "2307b9f0b1da6945",
                 "e549aba02d7efe29",
-                "f48a82a95e9d46a2"
+                "167381a7f325404a"
             ],
             [
                 "415b539a9d4cb7c5",
@@ -4687,6 +4620,19 @@
                 "913dd9d481a60a0b"
             ]
         ]
+    },
+    {
+        "id": "167381a7f325404a",
+        "type": "link out",
+        "z": "d142db9d1a2f6e7e",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "15a066e93ff8f622"
+        ],
+        "x": 875,
+        "y": 680,
+        "wires": []
     },
     {
         "id": "0159e193b35dc93d",
@@ -4856,7 +4802,7 @@
         "wires": [
             [
                 "a8a8f90daa726fa3",
-                "30b29120ba5f0001"
+                "13364509e7b60952"
             ],
             [
                 "f4cccd67f51cf31e"
@@ -4911,7 +4857,7 @@
         "repair": false,
         "outputs": 2,
         "x": 610,
-        "y": 300,
+        "y": 314,
         "wires": [
             [
                 "13a1c2d145877346",
@@ -5100,9 +5046,28 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 730,
-        "y": 200,
+        "x": 1190,
+        "y": 198,
         "wires": []
+    },
+    {
+        "id": "13364509e7b60952",
+        "type": "function",
+        "z": "f0ef22c0b696182f",
+        "name": "reset transition",
+        "func": "delete msg.payload.transition;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [
+                "30b29120ba5f0001"
+            ]
+        ]
     },
     {
         "id": "67b5cb9f6bbf5d07",
@@ -6698,7 +6663,7 @@
         "y": 360,
         "wires": [
             [
-                "5980ee6d6eed6db8"
+                "f73ad570fabe3660"
             ]
         ]
     },
@@ -7001,123 +6966,6 @@
         "wires": []
     },
     {
-        "id": "129f4721fc14c7de",
-        "type": "mqtt out",
-        "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
-        "name": "",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02/get",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 2890,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "91e2392643690da0",
-        "type": "mqtt in",
-        "z": "4769076e30583f2e",
-        "d": true,
-        "g": "8080322e48b0bea9",
-        "name": "",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "3ea2a9db3d9d7fd8",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 2450,
-        "y": 280,
-        "wires": [
-            [
-                "a6932210b2c105f7"
-            ]
-        ]
-    },
-    {
-        "id": "a88c2df1410bc2df",
-        "type": "inject",
-        "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 2420,
-        "y": 200,
-        "wires": [
-            [
-                "24d46a544d732ce8"
-            ]
-        ]
-    },
-    {
-        "id": "24d46a544d732ce8",
-        "type": "change",
-        "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"state\":\"\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2620,
-        "y": 200,
-        "wires": [
-            [
-                "129f4721fc14c7de"
-            ]
-        ]
-    },
-    {
-        "id": "a6932210b2c105f7",
-        "type": "debug",
-        "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
-        "name": "debug 96",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2960,
-        "y": 280,
-        "wires": []
-    },
-    {
         "id": "173d3c69bb411986",
         "type": "function",
         "z": "4769076e30583f2e",
@@ -7163,17 +7011,6 @@
                 "173d3c69bb411986"
             ]
         ]
-    },
-    {
-        "id": "8e553844d75bc48e",
-        "type": "comment",
-        "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
-        "name": "Check bulb state",
-        "info": "",
-        "x": 2420,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "9d7a445cfc5e4bcc",
@@ -7282,7 +7119,7 @@
         "y": 940,
         "wires": [
             [
-                "386df9f4c5a2e54c"
+                "0d1aac53a73ab55b"
             ]
         ]
     },
@@ -7412,10 +7249,169 @@
         ]
     },
     {
+        "id": "f73ad570fabe3660",
+        "type": "function",
+        "z": "4769076e30583f2e",
+        "name": "reset transition",
+        "func": "delete msg.payload.transition;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 480,
+        "wires": [
+            [
+                "5980ee6d6eed6db8"
+            ]
+        ]
+    },
+    {
+        "id": "0d1aac53a73ab55b",
+        "type": "function",
+        "z": "4769076e30583f2e",
+        "name": "reset transition",
+        "func": "delete msg.payload.transition;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 840,
+        "wires": [
+            [
+                "386df9f4c5a2e54c"
+            ]
+        ]
+    },
+    {
+        "id": "129f4721fc14c7de",
+        "type": "mqtt out",
+        "z": "4769076e30583f2e",
+        "name": "",
+        "topic": "zigbee2mqtt/Bulb_Ikea_02/get",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 2890,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "91e2392643690da0",
+        "type": "mqtt in",
+        "z": "4769076e30583f2e",
+        "d": true,
+        "name": "",
+        "topic": "zigbee2mqtt/Bulb_Ikea_02",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3ea2a9db3d9d7fd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2450,
+        "y": 280,
+        "wires": [
+            [
+                "a6932210b2c105f7"
+            ]
+        ]
+    },
+    {
+        "id": "a88c2df1410bc2df",
+        "type": "inject",
+        "z": "4769076e30583f2e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 2420,
+        "y": 200,
+        "wires": [
+            [
+                "24d46a544d732ce8"
+            ]
+        ]
+    },
+    {
+        "id": "24d46a544d732ce8",
+        "type": "change",
+        "z": "4769076e30583f2e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"state\":\"\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2620,
+        "y": 200,
+        "wires": [
+            [
+                "129f4721fc14c7de"
+            ]
+        ]
+    },
+    {
+        "id": "a6932210b2c105f7",
+        "type": "debug",
+        "z": "4769076e30583f2e",
+        "name": "debug 96",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2960,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8e553844d75bc48e",
+        "type": "comment",
+        "z": "4769076e30583f2e",
+        "name": "Check bulb state",
+        "info": "",
+        "x": 2420,
+        "y": 140,
+        "wires": []
+    },
+    {
         "id": "ef693773fbcf5e45",
         "type": "change",
         "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
         "name": "",
         "rules": [
             {
@@ -7442,33 +7438,14 @@
         "y": 360,
         "wires": [
             [
-                "2af3980a4bb1291d"
+                "74d5da88832508a6"
             ]
         ]
-    },
-    {
-        "id": "2af3980a4bb1291d",
-        "type": "e-mail",
-        "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "authtype": "BASIC",
-        "saslformat": false,
-        "token": "",
-        "secure": true,
-        "tls": true,
-        "name": "x5ht7lb6@duck.com",
-        "dname": "",
-        "x": 2960,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "952ff5eefeae7247",
         "type": "mqtt in",
         "z": "4769076e30583f2e",
-        "g": "8080322e48b0bea9",
         "name": "",
         "topic": "zigbee2mqtt/0x60efabfffe08e191",
         "qos": "2",
@@ -7487,6 +7464,19 @@
         ]
     },
     {
+        "id": "74d5da88832508a6",
+        "type": "link out",
+        "z": "4769076e30583f2e",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "a420d68d10d187b9"
+        ],
+        "x": 2917,
+        "y": 359,
+        "wires": []
+    },
+    {
         "id": "a0e6afadf433511e",
         "type": "debug",
         "z": "7ea9894b62d00340",
@@ -7500,89 +7490,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1000,
-        "y": 180,
+        "y": 40,
         "wires": []
-    },
-    {
-        "id": "29d8b5f36082c1f6",
-        "type": "subflow:47ad76887e14580c",
-        "z": "7ea9894b62d00340",
-        "d": true,
-        "name": "",
-        "env": [
-            {
-                "name": "PIR_TOPIC",
-                "value": "zigbee2mqtt/PIR_SNZB-03_02",
-                "type": "str"
-            },
-            {
-                "name": "PIR_TIMEOUT",
-                "value": "9",
-                "type": "num"
-            }
-        ],
-        "x": 700,
-        "y": 100,
-        "wires": [
-            [
-                "a0e6afadf433511e",
-                "90c10a8f204e2451"
-            ],
-            [
-                "e0be4e7ced6b1f95",
-                "c705edd9ba8dd828"
-            ]
-        ]
-    },
-    {
-        "id": "c162f74487f12375",
-        "type": "inject",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 190,
-        "y": 100,
-        "wires": [
-            [
-                "29d8b5f36082c1f6"
-            ]
-        ]
-    },
-    {
-        "id": "3c1fc5e2ac471393",
-        "type": "inject",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
-        "payloadType": "json",
-        "x": 170,
-        "y": 160,
-        "wires": [
-            [
-                "29d8b5f36082c1f6"
-            ]
-        ]
     },
     {
         "id": "e0be4e7ced6b1f95",
@@ -7598,7 +7507,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1000,
-        "y": 260,
+        "y": 120,
         "wires": []
     },
     {
@@ -7619,7 +7528,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 190,
-        "y": 300,
+        "y": 160,
         "wires": [
             [
                 "67cad71bb08fe35c"
@@ -7638,7 +7547,7 @@
         "finalize": "",
         "libs": [],
         "x": 520,
-        "y": 300,
+        "y": 160,
         "wires": [
             [
                 "a0e6afadf433511e"
@@ -7666,7 +7575,7 @@
         "payload": "300",
         "payloadType": "num",
         "x": 256,
-        "y": 360,
+        "y": 220,
         "wires": [
             [
                 "67cad71bb08fe35c",
@@ -7674,68 +7583,6 @@
                 "e805ea5850506f2f"
             ]
         ]
-    },
-    {
-        "id": "c705edd9ba8dd828",
-        "type": "trigger",
-        "z": "7ea9894b62d00340",
-        "name": "",
-        "op1": "ON",
-        "op2": "OFF",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "5",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 2,
-        "x": 1160,
-        "y": 140,
-        "wires": [
-            [
-                "cb29fa7852062a3d"
-            ],
-            [
-                "90c10a8f204e2451"
-            ]
-        ]
-    },
-    {
-        "id": "90c10a8f204e2451",
-        "type": "debug",
-        "z": "7ea9894b62d00340",
-        "name": "Bulb",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1310,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "cb29fa7852062a3d",
-        "type": "debug",
-        "z": "7ea9894b62d00340",
-        "d": true,
-        "name": "debug 57",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1400,
-        "y": 120,
-        "wires": []
     },
     {
         "id": "e79873fd26ea8662",
@@ -7757,7 +7604,7 @@
         "to": "",
         "reg": false,
         "x": 540,
-        "y": 500,
+        "y": 360,
         "wires": [
             []
         ]
@@ -7774,7 +7621,7 @@
         "finalize": "",
         "libs": [],
         "x": 500,
-        "y": 360,
+        "y": 220,
         "wires": [
             [
                 "f8369892f5363b29"
@@ -7794,7 +7641,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
-        "y": 360,
+        "y": 220,
         "wires": []
     },
     {
@@ -7811,7 +7658,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 810,
-        "y": 740,
+        "y": 600,
         "wires": []
     },
     {
@@ -7828,7 +7675,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 810,
-        "y": 680,
+        "y": 540,
         "wires": []
     },
     {
@@ -7849,7 +7696,7 @@
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000,\"illuminance_lux\":200}",
         "payloadType": "json",
         "x": 230,
-        "y": 720,
+        "y": 580,
         "wires": [
             [
                 "b507f820e52d9de6"
@@ -7874,7 +7721,7 @@
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000,\"illuminance_lux\":10}",
         "payloadType": "json",
         "x": 220,
-        "y": 760,
+        "y": 620,
         "wires": [
             [
                 "b507f820e52d9de6"
@@ -7894,18 +7741,18 @@
                 "type": "num"
             },
             {
-                "name": "NIGHT_BRIGHTNESS",
-                "value": "149",
-                "type": "num"
-            },
-            {
                 "name": "NIGHT_TIME",
                 "value": "23:59",
                 "type": "str"
+            },
+            {
+                "name": "NIGHT_BRIGHTNESS",
+                "value": "149",
+                "type": "num"
             }
         ],
         "x": 550,
-        "y": 700,
+        "y": 560,
         "wires": [
             [
                 "87e2059fe7dc8602"
@@ -7933,7 +7780,7 @@
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":true,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
         "x": 180,
-        "y": 600,
+        "y": 460,
         "wires": [
             [
                 "b507f820e52d9de6",
@@ -7959,49 +7806,13 @@
         "payload": "{\"battery\":100,\"battery_low\":false,\"linkquality\":72,\"occupancy\":false,\"tamper\":false,\"voltage\":3000}",
         "payloadType": "json",
         "x": 200,
-        "y": 660,
+        "y": 520,
         "wires": [
             [
                 "b507f820e52d9de6",
                 "bfc7caafb63cf070"
             ]
         ]
-    },
-    {
-        "id": "8b8a1a36e583f322",
-        "type": "debug",
-        "z": "7ea9894b62d00340",
-        "d": true,
-        "name": "YES",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1790,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "f83c662fe1946659",
-        "type": "debug",
-        "z": "7ea9894b62d00340",
-        "d": true,
-        "name": "NO",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1790,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "9b2927504ff5e025",
@@ -8128,7 +7939,7 @@
         "odd": false,
         "even": false,
         "x": 840,
-        "y": 540,
+        "y": 400,
         "wires": [
             [],
             [],
@@ -8149,7 +7960,7 @@
             }
         ],
         "x": 1440,
-        "y": 640,
+        "y": 500,
         "wires": [
             []
         ]
@@ -8168,7 +7979,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 210,
-        "y": 891,
+        "y": 751,
         "wires": [
             [
                 "988bc6133aeb6f96"
@@ -8189,7 +8000,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 800,
-        "y": 860,
+        "y": 720,
         "wires": []
     },
     {
@@ -8207,7 +8018,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 230,
-        "y": 1020,
+        "y": 880,
         "wires": [
             [
                 "b7802a0c5717a61e"
@@ -8228,7 +8039,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 820,
-        "y": 940,
+        "y": 800,
         "wires": []
     },
     {
@@ -8251,7 +8062,7 @@
         "to": "",
         "reg": false,
         "x": 580,
-        "y": 860,
+        "y": 720,
         "wires": [
             [
                 "c4cec534128b9b3f"
@@ -8278,7 +8089,7 @@
         "to": "",
         "reg": false,
         "x": 600,
-        "y": 940,
+        "y": 800,
         "wires": [
             [
                 "bf5998617ffb8cbd"
@@ -8299,7 +8110,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 1130,
-        "y": 840,
+        "y": 700,
         "wires": [
             [
                 "a14db03166524ba2"
@@ -8320,7 +8131,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1740,
-        "y": 660,
+        "y": 520,
         "wires": []
     },
     {
@@ -8376,7 +8187,7 @@
         "repair": false,
         "outputs": 8,
         "x": 1430,
-        "y": 840,
+        "y": 700,
         "wires": [
             [
                 "48877f610e8da9e0"
@@ -8418,7 +8229,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1760,
-        "y": 760,
+        "y": 620,
         "wires": []
     },
     {
@@ -8435,7 +8246,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1790,
-        "y": 860,
+        "y": 720,
         "wires": []
     },
     {
@@ -8452,7 +8263,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1790,
-        "y": 980,
+        "y": 840,
         "wires": []
     },
     {
@@ -8469,7 +8280,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1760,
-        "y": 700,
+        "y": 560,
         "wires": []
     },
     {
@@ -8486,7 +8297,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1780,
-        "y": 800,
+        "y": 660,
         "wires": []
     },
     {
@@ -8503,7 +8314,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1810,
-        "y": 900,
+        "y": 760,
         "wires": []
     },
     {
@@ -8520,8 +8331,180 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1810,
-        "y": 1020,
+        "y": 880,
         "wires": []
+    },
+    {
+        "id": "390811126452c4c3",
+        "type": "trigger",
+        "z": "7ea9894b62d00340",
+        "name": "",
+        "op1": "",
+        "op2": "OFF",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "topic",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 1460,
+        "y": 260,
+        "wires": [
+            [
+                "d4ee3d56e1f60ccd"
+            ],
+            [
+                "9591b5e6b6e1ab8f"
+            ]
+        ]
+    },
+    {
+        "id": "d4ee3d56e1f60ccd",
+        "type": "debug",
+        "z": "7ea9894b62d00340",
+        "name": "debug 102",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1770,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "46e9d8f45b8a1ec9",
+        "type": "inject",
+        "z": "7ea9894b62d00340",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "streamB",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1230,
+        "y": 260,
+        "wires": [
+            [
+                "390811126452c4c3"
+            ]
+        ]
+    },
+    {
+        "id": "9591b5e6b6e1ab8f",
+        "type": "debug",
+        "z": "7ea9894b62d00340",
+        "name": "debug 103",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "01cf2bcf12c0b773",
+        "type": "inject",
+        "z": "7ea9894b62d00340",
+        "name": "streamA:set delay",
+        "props": [
+            {
+                "p": "delay",
+                "v": "8000",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "streamA",
+        "x": 1230,
+        "y": 320,
+        "wires": [
+            [
+                "390811126452c4c3"
+            ]
+        ]
+    },
+    {
+        "id": "ed1050b0f15311d4",
+        "type": "inject",
+        "z": "7ea9894b62d00340",
+        "name": "stop timer",
+        "props": [
+            {
+                "p": "reset",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 1240,
+        "y": 380,
+        "wires": [
+            [
+                "390811126452c4c3"
+            ]
+        ]
+    },
+    {
+        "id": "a824c83435b046fb",
+        "type": "inject",
+        "z": "7ea9894b62d00340",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "streamA",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1230,
+        "y": 200,
+        "wires": [
+            [
+                "390811126452c4c3"
+            ]
+        ]
     },
     {
         "id": "734d8381c14eb46f",
@@ -9683,42 +9666,6 @@
         "wires": []
     },
     {
-        "id": "c9c5d037593c0bf2",
-        "type": "mqtt out",
-        "z": "d3cb7b4c3eeb0829",
-        "name": "Kids Night Light 1",
-        "topic": "zigbee2mqtt/0x60efabfffe08e191/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1830,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "158b6ea279acd5bb",
-        "type": "mqtt out",
-        "z": "d3cb7b4c3eeb0829",
-        "name": "Kids Night Light 2",
-        "topic": "zigbee2mqtt/0x8c6fb9fffee7cbb4/set",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3ea2a9db3d9d7fd8",
-        "x": 1830,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "87d71a3ab78e072b",
         "type": "mqtt out",
         "z": "d3cb7b4c3eeb0829",
@@ -9961,7 +9908,7 @@
         "correl": "",
         "expiry": "",
         "broker": "3ea2a9db3d9d7fd8",
-        "x": 1270,
+        "x": 1570,
         "y": 480,
         "wires": []
     },
@@ -9988,7 +9935,7 @@
         "y": 480,
         "wires": [
             [
-                "18faf3c38eab58cd"
+                "aed892950f7d26fe"
             ]
         ]
     },
@@ -10249,6 +10196,38 @@
         ]
     },
     {
+        "id": "e2d0ff1c3e8d07cc",
+        "type": "function",
+        "z": "d3cb7b4c3eeb0829",
+        "name": "reset transition",
+        "func": "delete msg.payload.transition;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 480,
+        "wires": [
+            [
+                "18faf3c38eab58cd"
+            ]
+        ]
+    },
+    {
+        "id": "e19bb5c50abd2b71",
+        "type": "link out",
+        "z": "d3cb7b4c3eeb0829",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "15a066e93ff8f622"
+        ],
+        "x": 1735,
+        "y": 560,
+        "wires": []
+    },
+    {
         "id": "253ec0e0eef2a234",
         "type": "mqtt in",
         "z": "3d6afdc1679dafa8",
@@ -10461,8 +10440,8 @@
         "tls": true,
         "name": "x5ht7lb6@duck.com",
         "dname": "",
-        "x": 460,
-        "y": 100,
+        "x": 400,
+        "y": 60,
         "wires": []
     },
     {
@@ -10471,16 +10450,87 @@
         "z": "e1d1a89ca219f891",
         "name": "link in: email",
         "links": [
-            "86be4cfb9107fec9",
-            "e146bcfdb2999789",
-            "5cc9e6c7848b6ee1",
-            "9824984071f02ab7"
+            "9824984071f02ab7",
+            "74d5da88832508a6"
         ],
-        "x": 245,
-        "y": 100,
+        "x": 185,
+        "y": 60,
         "wires": [
             [
                 "7956500a68144205"
+            ]
+        ]
+    },
+    {
+        "id": "3d6493860aaffdbf",
+        "type": "mqtt out",
+        "z": "e1d1a89ca219f891",
+        "name": "Kids Night Light 1",
+        "topic": "zigbee2mqtt/0x60efabfffe08e191/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 650,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5936ddcc9708b240",
+        "type": "mqtt out",
+        "z": "e1d1a89ca219f891",
+        "name": "Kids Night Light 2",
+        "topic": "zigbee2mqtt/0x8c6fb9fffee7cbb4/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ea2a9db3d9d7fd8",
+        "x": 646,
+        "y": 237,
+        "wires": []
+    },
+    {
+        "id": "702b2249cdfa41b0",
+        "type": "function",
+        "z": "e1d1a89ca219f891",
+        "name": "reset transition",
+        "func": "delete msg.payload.transition;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 354,
+        "y": 208,
+        "wires": [
+            [
+                "3d6493860aaffdbf",
+                "5936ddcc9708b240"
+            ]
+        ]
+    },
+    {
+        "id": "15a066e93ff8f622",
+        "type": "link in",
+        "z": "e1d1a89ca219f891",
+        "name": "link in: kids night lights",
+        "links": [
+            "167381a7f325404a",
+            "e19bb5c50abd2b71"
+        ],
+        "x": 221,
+        "y": 208,
+        "wires": [
+            [
+                "702b2249cdfa41b0"
             ]
         ]
     }
