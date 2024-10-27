@@ -2728,7 +2728,7 @@
         "type": "mqtt in",
         "z": "78ddf6bd666829fb",
         "name": "",
-        "topic": "zigbee2mqtt/PIR_SNZB-03_04",
+        "topic": "zigbee2mqtt/0x00124b00244577eb",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "5dc624c97909431e",
@@ -2736,11 +2736,12 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 173,
+        "x": 183,
         "y": 180,
         "wires": [
             [
-                "ad3f6f0adfb6df19"
+                "ad3f6f0adfb6df19",
+                "5210ca5dffc5007c"
             ]
         ]
     },
@@ -2942,7 +2943,7 @@
         "type": "mqtt out",
         "z": "78ddf6bd666829fb",
         "name": "ground floor bulb door bulb",
-        "topic": "zigbee2mqtt/Bulb_Linkind_02/set",
+        "topic": "zigbee2mqtt/0x00124b00251211fc/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -3108,7 +3109,7 @@
         "type": "mqtt out",
         "z": "78ddf6bd666829fb",
         "name": "ground floor bulb stairs bulb",
-        "topic": "zigbee2mqtt/Bulb_Ikea_01/set",
+        "topic": "zigbee2mqtt/0x04cd15fffed7aca5/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -3143,6 +3144,22 @@
                 "e735c6c6661f61fd"
             ]
         ]
+    },
+    {
+        "id": "5210ca5dffc5007c",
+        "type": "debug",
+        "z": "78ddf6bd666829fb",
+        "name": "debug 104",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 380,
+        "wires": []
     },
     {
         "id": "7fa46b9a25953a02",
@@ -3526,7 +3543,7 @@
         "type": "mqtt in",
         "z": "03d0df180b773622",
         "name": "1st floor PIR",
-        "topic": "zigbee2mqtt/PIR_SNZB-03_02",
+        "topic": "zigbee2mqtt/0x00124b0025090cef",
         "qos": "0",
         "datatype": "json",
         "broker": "5dc624c97909431e",
@@ -3639,7 +3656,7 @@
         "type": "mqtt out",
         "z": "03d0df180b773622",
         "name": "1st floor stairs bulb",
-        "topic": "zigbee2mqtt/Bulb_Linkind_01/set",
+        "topic": "zigbee2mqtt/0xec1bbdfffeb2af98/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -3861,7 +3878,7 @@
         "type": "mqtt in",
         "z": "d142db9d1a2f6e7e",
         "name": "2nd floor stairs PIR ",
-        "topic": "zigbee2mqtt/PIR_SNZB-03_01",
+        "topic": "zigbee2mqtt/0x00124b00251211fc",
         "qos": "0",
         "datatype": "json",
         "broker": "5dc624c97909431e",
@@ -3882,7 +3899,7 @@
         "type": "mqtt out",
         "z": "d142db9d1a2f6e7e",
         "name": "2nd floor stairs bulb",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02/set",
+        "topic": "zigbee2mqtt/0x04cd15fffec6e46f/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -4067,7 +4084,7 @@
         "type": "mqtt out",
         "z": "d142db9d1a2f6e7e",
         "name": "Kids Room Ceiling Light",
-        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
+        "topic": "zigbee2mqtt/0x00124b0022679e17/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -6516,7 +6533,7 @@
         "type": "mqtt out",
         "z": "4769076e30583f2e",
         "name": "Kids Room Ceiling Light",
-        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
+        "topic": "zigbee2mqtt/0x00124b002512e0f1/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -7060,7 +7077,7 @@
         "type": "mqtt in",
         "z": "4769076e30583f2e",
         "name": "Button 02",
-        "topic": "zigbee2mqtt/Button02_SNZB-01",
+        "topic": "zigbee2mqtt/0x00124b0025125fc5",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "5dc624c97909431e",
@@ -9359,7 +9376,7 @@
         "type": "mqtt out",
         "z": "d3cb7b4c3eeb0829",
         "name": "Kids Room Ceiling Light",
-        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
+        "topic": "zigbee2mqtt/0x00124b0022679e17/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -9377,7 +9394,7 @@
         "type": "mqtt out",
         "z": "d3cb7b4c3eeb0829",
         "name": "2nd floor stairs bulb",
-        "topic": "zigbee2mqtt/Bulb_Ikea_02/set",
+        "topic": "zigbee2mqtt/0x04cd15fffec6e46f/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -9524,7 +9541,8 @@
         "wires": [
             [
                 "8f33af78683bf9c6",
-                "61cdd14cbe53d561"
+                "61cdd14cbe53d561",
+                "dfcb47d1e8f3d98b"
             ],
             [],
             [
@@ -9649,7 +9667,7 @@
         "type": "mqtt out",
         "z": "d3cb7b4c3eeb0829",
         "name": "Kids Room Ceiling Light",
-        "topic": "zigbee2mqtt/RELAY_BASICZBR3/set",
+        "topic": "zigbee2mqtt/0x00124b0022679e17/set",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -9877,7 +9895,7 @@
         "id": "18faf3c38eab58cd",
         "type": "mqtt out",
         "z": "d3cb7b4c3eeb0829",
-        "name": "",
+        "name": "Science Room Bulb",
         "topic": "zigbee2mqtt/0x980c33fffee29bf8/set",
         "qos": "",
         "retain": "",
@@ -9887,7 +9905,7 @@
         "correl": "",
         "expiry": "",
         "broker": "5dc624c97909431e",
-        "x": 1570,
+        "x": 1520,
         "y": 480,
         "wires": []
     },
@@ -10231,6 +10249,22 @@
             ],
             []
         ]
+    },
+    {
+        "id": "dfcb47d1e8f3d98b",
+        "type": "debug",
+        "z": "d3cb7b4c3eeb0829",
+        "name": "debug 105",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "253ec0e0eef2a234",
